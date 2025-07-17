@@ -3,10 +3,10 @@
     <component :is="iconComponent" class="service-icon" />
     <h3 class="service-title">{{ service.title }}</h3>
     <p class="service-description">{{ service.description }}</p>
-    <ul v-if="showDetails" class="space-y-2">
-      <li v-for="detail in service.details" :key="detail" class="flex items-start">
-        <Check class="h-5 w-5 text-green-600 mr-2 mt-0.5 flex-shrink-0" />
-        <span class="text-gray-700">{{ detail }}</span>
+    <ul v-if="showDetails" class="service-details">
+      <li v-for="detail in service.details" :key="detail">
+        <Check />
+        <span>{{ detail }}</span>
       </li>
     </ul>
   </div>

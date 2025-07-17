@@ -1,48 +1,42 @@
 <template>
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-4 gap-8">
-        <div>
-          <div class="flex items-center mb-4">
-            <Leaf class="h-8 w-8 text-green-400 mr-2" />
-            <span class="text-xl font-bold">EcoConsult</span>
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <Leaf />
+            EcoConsult
           </div>
-          <p class="text-gray-300">
+          <p>
             Sua parceira em consultoria ambiental, garantindo conformidade e sustentabilidade.
           </p>
         </div>
         
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Serviços</h4>
-          <ul class="space-y-2 text-gray-300">
+        <div class="footer-section">
+          <h4>Serviços</h4>
+          <ul>
             <li v-for="service in servicesList" :key="service">{{ service }}</li>
           </ul>
         </div>
         
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Empresa</h4>
-          <ul class="space-y-2 text-gray-300">
+        <div class="footer-section">
+          <h4>Empresa</h4>
+          <ul>
             <li>
-              <router-link to="/sobre" class="hover:text-green-400 transition-colors">
-                Sobre Nós
-              </router-link>
+              <router-link to="/sobre">Sobre Nós</router-link>
             </li>
             <li>
-              <router-link to="/servicos" class="hover:text-green-400 transition-colors">
-                Serviços
-              </router-link>
+              <router-link to="/servicos">Serviços</router-link>
             </li>
             <li>
-              <router-link to="/contatos" class="hover:text-green-400 transition-colors">
-                Contato
-              </router-link>
+              <router-link to="/contatos">Contato</router-link>
             </li>
           </ul>
         </div>
         
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Contato</h4>
-          <div class="space-y-2 text-gray-300">
+        <div class="footer-section">
+          <h4>Contato</h4>
+          <div>
             <p>{{ contactInfo.phone }}</p>
             <p>{{ contactInfo.email }}</p>
             <p>{{ contactInfo.location }}</p>
@@ -50,7 +44,7 @@
         </div>
       </div>
       
-      <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
+      <div class="footer-bottom">
         <p>&copy; {{ currentYear }} EcoConsult. Todos os direitos reservados.</p>
       </div>
     </div>
