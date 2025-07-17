@@ -1,135 +1,211 @@
 <template>
-  <div class="py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h1 class="text-4xl font-bold text-gray-800 mb-4">Entre em Contato</h1>
-        <p class="text-xl text-gray-600">
-          Estamos prontos para ajudar sua empresa com soluções ambientais personalizadas.
-        </p>
+  <div>
+    <!-- Hero Section -->
+    <section class="contact-hero">
+      <div class="hero-background">
+        <div class="hero-overlay"></div>
+        <img 
+          src="/placeholder.svg?height=500&width=1200" 
+          alt="Entre em Contato" 
+          class="hero-image"
+        />
       </div>
-
-      <div class="grid lg:grid-cols-2 gap-12">
-        <!-- Contact Form -->
-        <div class="bg-white p-8 rounded-lg shadow-lg">
-          <h2 class="text-2xl font-bold text-gray-800 mb-6">Envie sua Mensagem</h2>
-          <form @submit.prevent="submitForm" class="space-y-6">
-            <div class="form-group">
-              <label class="form-label">Nome Completo</label>
-              <input 
-                v-model="form.name"
-                type="text" 
-                required
-                class="form-input focus-visible"
-              >
-            </div>
-            <div class="form-group">
-              <label class="form-label">Email</label>
-              <input 
-                v-model="form.email"
-                type="email" 
-                required
-                class="form-input focus-visible"
-              >
-            </div>
-            <div class="form-group">
-              <label class="form-label">Telefone</label>
-              <input 
-                v-model="form.phone"
-                type="tel"
-                class="form-input focus-visible"
-              >
-            </div>
-            <div class="form-group">
-              <label class="form-label">Serviço de Interesse</label>
-              <select 
-                v-model="form.service"
-                class="form-select focus-visible"
-              >
-                <option value="">Selecione um serviço</option>
-                <option 
-                  v-for="option in serviceOptions" 
-                  :key="option.value" 
-                  :value="option.value"
-                >
-                  {{ option.label }}
-                </option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Mensagem</label>
-              <textarea 
-                v-model="form.message"
-                rows="4"
-                required
-                class="form-textarea focus-visible"
-              ></textarea>
-            </div>
-            <button 
-              type="submit"
-              :disabled="isSubmitting"
-              class="w-full btn-primary disabled:opacity-50"
-            >
-              {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
-            </button>
-          </form>
-
-          <div 
-            v-if="submitMessage" 
-            class="mt-4 alert" 
-            :class="submitSuccess ? 'alert-success' : 'alert-error'"
-          >
-            {{ submitMessage }}
-          </div>
+      <div class="container">
+        <div class="hero-content">
+          <h1 class="hero-title animate-fade-in-up">Entre em Contato</h1>
+          <p class="hero-subtitle animate-fade-in-up">
+            Estamos prontos para ajudar sua empresa com soluções ambientais personalizadas.
+          </p>
         </div>
+      </div>
+    </section>
 
-        <!-- Contact Info -->
-        <div class="space-y-8">
-          <div class="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-lg">
-            <h3 class="text-2xl font-bold text-gray-800 mb-6">Informações de Contato</h3>
-            <div class="space-y-4">
+    <section class="contact-content">
+      <div class="container">
+        <div class="contact-grid">
+          <!-- Contact Form -->
+          <div class="contact-form-section">
+            <div class="form-card">
+              <div class="form-header">
+                <div class="form-icon">
+                  <Mail />
+                </div>
+                <h2>Envie sua Mensagem</h2>
+                <p>Preencha o formulário e entraremos em contato em breve</p>
+              </div>
+              
+              <form @submit.prevent="submitForm" class="contact-form">
+                <div class="form-group">
+                  <label class="form-label">Nome Completo</label>
+                  <input 
+                    v-model="form.name"
+                    type="text" 
+                    required
+                    class="form-input"
+                    placeholder="Seu nome completo"
+                  >
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Email</label>
+                  <input 
+                    v-model="form.email"
+                    type="email" 
+                    required
+                    class="form-input"
+                    placeholder="seu@email.com"
+                  >
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Telefone</label>
+                  <input 
+                    v-model="form.phone"
+                    type="tel"
+                    class="form-input"
+                    placeholder="(11) 99999-9999"
+                  >
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Serviço de Interesse</label>
+                  <select 
+                    v-model="form.service"
+                    class="form-select"
+                  >
+                    <option value="">Selecione um serviço</option>
+                    <option 
+                      v-for="option in serviceOptions" 
+                      :key="option.value" 
+                      :value="option.value"
+                    >
+                      {{ option.label }}
+                    </option>
+                  </select>
+                </div>
+                
+                <div class="form-group">
+                  <label class="form-label">Mensagem</label>
+                  <textarea 
+                    v-model="form.message"
+                    rows="4"
+                    required
+                    class="form-textarea"
+                    placeholder="Descreva como podemos ajudar sua empresa..."
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit"
+                  :disabled="isSubmitting"
+                  class="btn btn-primary w-full"
+                  :class="{ loading: isSubmitting }"
+                >
+                  <span v-if="!isSubmitting">Enviar Mensagem</span>
+                  <span v-else class="flex items-center">
+                    <div class="spinner"></div>
+                    Enviando...
+                  </span>
+                </button>
+              </form>
+
               <div 
-                v-for="contact in contactInfo" 
-                :key="contact.type"
-                class="flex items-center"
+                v-if="submitMessage" 
+                class="alert mt-4" 
+                :class="submitSuccess ? 'alert-success' : 'alert-error'"
               >
-                <component :is="contact.icon" :class="`h-6 w-6 ${contact.color} mr-4`" />
-                <div>
-                  <p class="font-semibold text-gray-800">{{ contact.label }}</p>
-                  <p class="text-gray-600" v-html="contact.value"></p>
+                {{ submitMessage }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="contact-info-section">
+            <!-- Contact Details -->
+            <div class="info-card">
+              <div class="info-header">
+                <div class="info-icon green">
+                  <Phone />
+                </div>
+                <h3>Informações de Contato</h3>
+              </div>
+              
+              <div class="contact-items">
+                <div 
+                  v-for="contact in contactInfo" 
+                  :key="contact.type"
+                  class="contact-item"
+                >
+                  <component :is="contact.icon" :class="`contact-icon ${contact.color}`" />
+                  <div class="contact-details">
+                    <h4>{{ contact.label }}</h4>
+                    <p v-html="contact.value"></p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <div class="bg-white p-8 rounded-lg shadow-lg">
-            <h3 class="text-xl font-bold text-gray-800 mb-4">Horário de Atendimento</h3>
-            <div class="space-y-2">
-              <div 
-                v-for="schedule in scheduleInfo" 
-                :key="schedule.day"
-                class="flex justify-between"
-              >
-                <span class="text-gray-600">{{ schedule.day }}:</span>
-                <span class="font-semibold text-gray-800">{{ schedule.hours }}</span>
+            <!-- Schedule -->
+            <div class="info-card">
+              <div class="info-header">
+                <div class="info-icon blue">
+                  <Clock />
+                </div>
+                <h3>Horário de Atendimento</h3>
+              </div>
+              
+              <div class="schedule-items">
+                <div 
+                  v-for="schedule in scheduleInfo" 
+                  :key="schedule.day"
+                  class="schedule-item"
+                >
+                  <span class="schedule-day">{{ schedule.day }}:</span>
+                  <span class="schedule-hours">{{ schedule.hours }}</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Emergency Contact -->
+            <div class="emergency-card">
+              <div class="emergency-header">
+                <div class="emergency-icon">
+                  <AlertCircle />
+                </div>
+                <h3>Atendimento de Emergência</h3>
+              </div>
+              <p>Para situações urgentes relacionadas a licenças ambientais:</p>
+              <div class="emergency-contact">
+                <Phone />
+                <div>
+                  <p class="emergency-phone">{{ emergencyContact.phone }}</p>
+                  <p class="emergency-availability">{{ emergencyContact.availability }}</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location Image -->
+            <div class="location-card">
+              <img 
+                src="/placeholder.svg?height=200&width=400" 
+                alt="Localização EcoConsult" 
+                class="location-image"
+              />
+              <div class="location-overlay">
+                <MapPin />
+                <span>São Paulo - SP</span>
               </div>
             </div>
           </div>
-
-          <div class="bg-gradient-to-r from-green-600 to-blue-600 text-white p-6 rounded-lg">
-            <h3 class="text-xl font-bold mb-2">Atendimento de Emergência</h3>
-            <p class="mb-4">Para situações urgentes relacionadas a licenças ambientais:</p>
-            <p class="font-semibold">{{ emergencyContact.phone }}</p>
-            <p class="text-sm opacity-90">{{ emergencyContact.availability }}</p>
-          </div>
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, type Component } from 'vue'
-import { Phone, Mail, MapPin } from 'lucide-vue-next'
+import { ref, reactive } from 'vue'
+import { Phone, Mail, MapPin, Clock, AlertCircle } from 'lucide-vue-next'
 import type { ContactForm } from '@/types'
 
 interface ServiceOption {
@@ -141,7 +217,7 @@ interface ContactInfo {
   type: string
   label: string
   value: string
-  icon: Component
+  icon: any
   color: string
 }
 
@@ -181,21 +257,21 @@ const contactInfo: ContactInfo[] = [
     label: 'Telefone',
     value: '(11) 9999-9999',
     icon: Phone,
-    color: 'text-green-600'
+    color: 'primary'
   },
   {
     type: 'email',
     label: 'Email',
     value: 'contato@ecoconsult.com.br',
     icon: Mail,
-    color: 'text-blue-600'
+    color: 'secondary'
   },
   {
     type: 'address',
     label: 'Endereço',
     value: 'Rua das Flores, 123<br>São Paulo - SP',
     icon: MapPin,
-    color: 'text-green-600'
+    color: 'primary'
   }
 ]
 
@@ -239,3 +315,387 @@ const submitForm = async (): Promise<void> => {
   }
 }
 </script>
+
+<style scoped>
+.contact-hero {
+  position: relative;
+  padding: var(--spacing-16) 0;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contact-content {
+  padding: var(--spacing-20) 0;
+  background: linear-gradient(135deg, var(--gray-50), var(--primary-50));
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-12);
+  align-items: start;
+}
+
+.form-card {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 2px solid var(--primary-100);
+}
+
+.form-header {
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  color: white;
+  padding: var(--spacing-8);
+  text-align: center;
+}
+
+.form-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-4);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-header h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-2);
+}
+
+.form-header p {
+  opacity: 0.9;
+  margin-bottom: 0;
+}
+
+.contact-form {
+  padding: var(--spacing-8);
+}
+
+.info-card {
+  background: white;
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  margin-bottom: var(--spacing-6);
+  overflow: hidden;
+  border: 2px solid transparent;
+  transition: all var(--transition-normal);
+}
+
+.info-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-100);
+}
+
+.info-header {
+  padding: var(--spacing-6);
+  border-bottom: 1px solid var(--gray-100);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.info-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.info-icon.green {
+  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
+}
+
+.info-icon.blue {
+  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
+}
+
+.info-header h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: 0;
+}
+
+.contact-items {
+  padding: var(--spacing-6);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-4);
+}
+
+.contact-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: var(--spacing-4);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.contact-icon.primary {
+  color: var(--primary-600);
+}
+
+.contact-icon.secondary {
+  color: var(--secondary-600);
+}
+
+.contact-details h4 {
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: var(--spacing-1);
+}
+
+.contact-details p {
+  color: var(--gray-600);
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.schedule-items {
+  padding: var(--spacing-6);
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+  border-bottom: 1px solid var(--gray-100);
+}
+
+.schedule-item:last-child {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.schedule-day {
+  color: var(--gray-600);
+  font-weight: 500;
+}
+
+.schedule-hours {
+  color: var(--gray-800);
+  font-weight: 600;
+}
+
+.emergency-card {
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  color: white;
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-8);
+  margin-bottom: var(--spacing-6);
+  box-shadow: var(--shadow-lg);
+}
+
+.emergency-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.emergency-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emergency-header h3 {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.emergency-card p {
+  opacity: 0.9;
+  margin-bottom: var(--spacing-4);
+  line-height: 1.6;
+}
+
+.emergency-contact {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-4);
+  border-radius: var(--border-radius);
+}
+
+.emergency-phone {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  margin-bottom: var(--spacing-1);
+}
+
+.emergency-availability {
+  font-size: var(--font-size-sm);
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.location-card {
+  position: relative;
+  border-radius: var(--border-radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.location-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.location-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  padding: var(--spacing-4);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.location-overlay svg {
+  width: 20px;
+  height: 20px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.mt-4 {
+  margin-top: var(--spacing-4);
+}
+
+@media (max-width: 1024px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-8);
+  }
+
+  .contact-form-section {
+    order: 2;
+  }
+
+  .contact-info-section {
+    order: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-hero {
+    min-height: 40vh;
+    padding: var(--spacing-12) 0;
+  }
+
+  .contact-content {
+    padding: var(--spacing-16) 0;
+  }
+
+  .contact-grid {
+    gap: var(--spacing-6);
+  }
+
+  .form-card,
+  .info-card,
+  .emergency-card {
+    margin: 0 var(--spacing-2);
+  }
+
+  .form-header,
+  .contact-form {
+    padding: var(--spacing-6);
+  }
+
+  .info-header,
+  .contact-items,
+  .schedule-items {
+    padding: var(--spacing-4);
+  }
+
+  .emergency-card {
+    padding: var(--spacing-6);
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-2);
+  }
+
+  .contact-icon {
+    margin-right: 0;
+    margin-top: 0;
+  }
+
+  .schedule-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-1);
+  }
+
+  .emergency-contact {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-header h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .info-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-2);
+  }
+
+  .emergency-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-2);
+  }
+
+  .location-overlay {
+    justify-content: center;
+  }
+}
+</style>
