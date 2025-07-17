@@ -15,9 +15,9 @@
             v-for="item in menuItems" 
             :key="item.name"
             :to="item.path"
-            class="px-3 py-2 rounded-md text-sm font-medium transition-colors"
-            active-class="text-green-600 bg-green-50"
-            :class="'text-gray-700 hover:text-green-600 hover:bg-green-50'"
+            class="nav-link focus-visible"
+            active-class="nav-link-active"
+            :class="'nav-link-inactive'"
           >
             {{ item.name }}
           </router-link>
@@ -40,9 +40,9 @@
             :key="item.name"
             :to="item.path"
             @click="closeMobileMenu"
-            class="block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
-            active-class="text-green-600 bg-green-50"
-            :class="'text-gray-700 hover:text-green-600 hover:bg-green-50'"
+            class="block nav-link w-full text-left focus-visible"
+            active-class="nav-link-active"
+            :class="'nav-link-inactive'"
           >
             {{ item.name }}
           </router-link>

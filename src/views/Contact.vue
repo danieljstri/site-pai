@@ -13,37 +13,37 @@
         <div class="bg-white p-8 rounded-lg shadow-lg">
           <h2 class="text-2xl font-bold text-gray-800 mb-6">Envie sua Mensagem</h2>
           <form @submit.prevent="submitForm" class="space-y-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Nome Completo</label>
+            <div class="form-group">
+              <label class="form-label">Nome Completo</label>
               <input 
                 v-model="form.name"
                 type="text" 
                 required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                class="form-input focus-visible"
               >
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+            <div class="form-group">
+              <label class="form-label">Email</label>
               <input 
                 v-model="form.email"
                 type="email" 
                 required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                class="form-input focus-visible"
               >
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Telefone</label>
+            <div class="form-group">
+              <label class="form-label">Telefone</label>
               <input 
                 v-model="form.phone"
                 type="tel"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                class="form-input focus-visible"
               >
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Serviço de Interesse</label>
+            <div class="form-group">
+              <label class="form-label">Serviço de Interesse</label>
               <select 
                 v-model="form.service"
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                class="form-select focus-visible"
               >
                 <option value="">Selecione um serviço</option>
                 <option 
@@ -55,13 +55,13 @@
                 </option>
               </select>
             </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2">Mensagem</label>
+            <div class="form-group">
+              <label class="form-label">Mensagem</label>
               <textarea 
                 v-model="form.message"
                 rows="4"
                 required
-                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                class="form-textarea focus-visible"
               ></textarea>
             </div>
             <button 
@@ -75,8 +75,8 @@
 
           <div 
             v-if="submitMessage" 
-            class="mt-4 p-4 rounded-lg" 
-            :class="submitSuccess ? 'bg-green-50 text-green-800' : 'bg-red-50 text-red-800'"
+            class="mt-4 alert" 
+            :class="submitSuccess ? 'alert-success' : 'alert-error'"
           >
             {{ submitMessage }}
           </div>
