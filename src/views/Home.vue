@@ -4,11 +4,6 @@
     <section class="hero">
       <div class="hero-background">
         <div class="hero-overlay"></div>
-        <img 
-          src="/placeholder.svg?height=800&width=1200" 
-          alt="Consultoria Ambiental" 
-          class="hero-image"
-        />
       </div>
       <div class="hero-container">
         <div class="hero-content">
@@ -122,11 +117,6 @@
             </router-link>
           </div>
           <div class="about-image">
-            <img 
-              src="/placeholder.svg?height=400&width=600" 
-              alt="Equipe EcoConsult" 
-              class="rounded-lg"
-            />
           </div>
         </div>
       </div>
@@ -135,11 +125,6 @@
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="cta-background">
-        <img 
-          src="/placeholder.svg?height=400&width=1200" 
-          alt="Meio Ambiente" 
-          class="cta-image"
-        />
         <div class="cta-overlay"></div>
       </div>
       <div class="container">

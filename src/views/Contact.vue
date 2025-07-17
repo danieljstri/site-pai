@@ -4,11 +4,6 @@
     <section class="contact-hero">
       <div class="hero-background">
         <div class="hero-overlay"></div>
-        <img 
-          src="/placeholder.svg?height=500&width=1200" 
-          alt="Entre em Contato" 
-          class="hero-image"
-        />
       </div>
       <div class="container">
         <div class="hero-content">
@@ -186,11 +181,6 @@
 
             <!-- Location Image -->
             <div class="location-card">
-              <img 
-                src="/placeholder.svg?height=200&width=400" 
-                alt="Localização EcoConsult" 
-                class="location-image"
-              />
               <div class="location-overlay">
                 <MapPin />
                 <span>São Paulo - SP</span>

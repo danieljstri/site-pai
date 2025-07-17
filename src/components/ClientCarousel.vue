@@ -69,7 +69,7 @@ import { clients } from '@/data/clients'
 import type { Client } from '@/types'
 
 const currentSlide = ref<number>(0)
-const carouselInterval = ref<NodeJS.Timeout | null>(null)
+const carouselInterval = ref<ReturnType<typeof setInterval> | null>(null)
 
 const clientSlides = computed<Client[][]>(() => {
   const slides: Client[][] = []

@@ -4,11 +4,6 @@
     <section class="about-hero">
       <div class="hero-background">
         <div class="hero-overlay"></div>
-        <img 
-          src="/placeholder.svg?height=600&width=1200" 
-          alt="Sobre a EcoConsult" 
-          class="hero-image"
-        />
       </div>
       <div class="container">
         <div class="hero-content">
@@ -50,11 +45,6 @@
             </div>
           </div>
           <div class="mission-image">
-            <img 
-              src="/placeholder.svg?height=500&width=600" 
-              alt="Missão EcoConsult" 
-              class="rounded-lg"
-            />
             <div class="image-overlay">
               <div class="overlay-content">
                 <Shield />
@@ -134,10 +124,6 @@
         <div class="team-grid">
           <div class="team-card">
             <div class="team-image">
-              <img 
-                src="/placeholder.svg?height=300&width=300" 
-                alt="Diretor Técnico" 
-              />
             </div>
             <div class="team-info">
               <h3>João Silva</h3>
@@ -150,10 +136,6 @@
           
           <div class="team-card">
             <div class="team-image">
-              <img 
-                src="/placeholder.svg?height=300&width=300" 
-                alt="Gerente de Projetos" 
-              />
             </div>
             <div class="team-info">
               <h3>Maria Santos</h3>
@@ -166,10 +148,6 @@
           
           <div class="team-card">
             <div class="team-image">
-              <img 
-                src="/placeholder.svg?height=300&width=300" 
-                alt="Consultor Sênior" 
-              />
             </div>
             <div class="team-info">
               <h3>Carlos Oliveira</h3>
@@ -186,11 +164,6 @@
     <!-- CTA Section -->
     <section class="cta-section">
       <div class="cta-background">
-        <img 
-          src="/placeholder.svg?height=400&width=1200" 
-          alt="Junte-se a nós" 
-          class="cta-image"
-        />
         <div class="cta-overlay"></div>
       </div>
       <div class="container">

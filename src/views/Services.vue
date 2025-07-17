@@ -4,11 +4,6 @@
     <section class="services-hero">
       <div class="hero-background">
         <div class="hero-overlay"></div>
-        <img 
-          src="/placeholder.svg?height=600&width=1200" 
-          alt="Serviços Ambientais" 
-          class="hero-image"
-        />
       </div>
       <div class="container">
         <div class="hero-content">
