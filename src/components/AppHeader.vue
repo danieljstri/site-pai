@@ -25,7 +25,7 @@
 
         <!-- Mobile menu button -->
         <div class="md:hidden flex items-center">
-          <button @click="mobileMenuOpen = !mobileMenuOpen" class="text-gray-700">
+          <button @click="toggleMobileMenu" class="text-gray-700">
             <Menu v-if="!mobileMenuOpen" class="h-6 w-6" />
             <X v-else class="h-6 w-6" />
           </button>
@@ -39,7 +39,7 @@
             v-for="item in menuItems" 
             :key="item.name"
             :to="item.path"
-            @click="mobileMenuOpen = false"
+            @click="closeMobileMenu"
             class="block px-3 py-2 rounded-md text-base font-medium w-full text-left transition-colors"
             active-class="text-green-600 bg-green-50"
             :class="'text-gray-700 hover:text-green-600 hover:bg-green-50'"
@@ -52,27 +52,26 @@
   </nav>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref } from 'vue'
 import { Leaf, Menu, X } from 'lucide-vue-next'
+import type { MenuItem } from '@/types'
 
-export default {
-  name: 'AppHeader',
-  components: {
-    Leaf,
-    Menu,
-    X
-  },
-  data() {
-    return {
-      mobileMenuOpen: false,
-      menuItems: [
-        { name: 'Início', path: '/' },
-        { name: 'Serviços', path: '/servicos' },
-        { name: 'Sobre', path: '/sobre' },
-        { name: 'Acessibilidade', path: '/acessibilidade' },
-        { name: 'Contatos', path: '/contatos' }
-      ]
-    }
-  }
+const mobileMenuOpen = ref<boolean>(false)
+
+const menuItems: MenuItem[] = [
+  { name: 'Início', path: '/' },
+  { name: 'Serviços', path: '/servicos' },
+  { name: 'Sobre', path: '/sobre' },
+  { name: 'Acessibilidade', path: '/acessibilidade' },
+  { name: 'Contatos', path: '/contatos' }
+]
+
+const toggleMobileMenu = (): void => {
+  mobileMenuOpen.value = !mobileMenuOpen.value
+}
+
+const closeMobileMenu = (): void => {
+  mobileMenuOpen.value = false
 }
 </script>

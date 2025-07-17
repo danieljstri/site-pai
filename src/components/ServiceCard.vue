@@ -12,10 +12,21 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { computed, type Component } from 'vue'
 import { Check, FileText, Eye, Settings, Shield, Accessibility } from 'lucide-vue-next'
+import type { Service, IconName } from '@/types'
 
-const iconMap = {
+interface Props {
+  service: Service
+  showDetails?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  showDetails: false
+})
+
+const iconMap: Record<IconName, Component> = {
   FileText,
   Eye,
   Settings,
@@ -23,26 +34,7 @@ const iconMap = {
   Accessibility
 }
 
-export default {
-  name: 'ServiceCard',
-  components: {
-    Check,
-    ...iconMap
-  },
-  props: {
-    service: {
-      type: Object,
-      required: true
-    },
-    showDetails: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    iconComponent() {
-      return iconMap[this.service.icon] || Shield
-    }
-  }
-}
+const iconComponent = computed<Component>(() => {
+  return iconMap[props.service.icon as IconName] || Shield
+})
 </script>

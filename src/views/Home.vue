@@ -21,7 +21,7 @@
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nossos Serviços</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           <ServiceCard 
-            v-for="service in services.slice(0, 4)" 
+            v-for="service in featuredServices" 
             :key="service.id" 
             :service="service" 
           />
@@ -52,21 +52,12 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { computed } from 'vue'
 import ServiceCard from '@/components/ServiceCard.vue'
 import ClientCarousel from '@/components/ClientCarousel.vue'
 import { services } from '@/data/services'
+import type { Service } from '@/types'
 
-export default {
-  name: 'Home',
-  components: {
-    ServiceCard,
-    ClientCarousel
-  },
-  data() {
-    return {
-      services
-    }
-  }
-}
+const featuredServices = computed<Service[]>(() => services.slice(0, 4))
 </script>

@@ -1,4 +1,6 @@
-export const clients = [
+import type { Client } from "@/types"
+
+export const clients: Client[] = [
   { id: 1, name: "Indústria ABC Ltda" },
   { id: 2, name: "Metalúrgica XYZ" },
   { id: 3, name: "Construtora Moderna" },

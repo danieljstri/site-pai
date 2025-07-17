@@ -15,10 +15,7 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Serviços</h4>
           <ul class="space-y-2 text-gray-300">
-            <li>Licenciamento Ambiental</li>
-            <li>Vistoria Ambiental</li>
-            <li>Controle de Licenças</li>
-            <li>Laudo de Acessibilidade</li>
+            <li v-for="service in servicesList" :key="service">{{ service }}</li>
           </ul>
         </div>
         
@@ -46,27 +43,42 @@
         <div>
           <h4 class="text-lg font-semibold mb-4">Contato</h4>
           <div class="space-y-2 text-gray-300">
-            <p>(11) 9999-9999</p>
-            <p>contato@ecoconsult.com.br</p>
-            <p>São Paulo - SP</p>
+            <p>{{ contactInfo.phone }}</p>
+            <p>{{ contactInfo.email }}</p>
+            <p>{{ contactInfo.location }}</p>
           </div>
         </div>
       </div>
       
       <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-        <p>&copy; 2024 EcoConsult. Todos os direitos reservados.</p>
+        <p>&copy; {{ currentYear }} EcoConsult. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
 </template>
 
-<script>
+<script setup lang="ts">
+import { computed } from 'vue'
 import { Leaf } from 'lucide-vue-next'
 
-export default {
-  name: 'AppFooter',
-  components: {
-    Leaf
-  }
+interface ContactInfo {
+  phone: string
+  email: string
+  location: string
 }
+
+const servicesList: string[] = [
+  'Licenciamento Ambiental',
+  'Vistoria Ambiental',
+  'Controle de Licenças',
+  'Laudo de Acessibilidade'
+]
+
+const contactInfo: ContactInfo = {
+  phone: '(11) 9999-9999',
+  email: 'contato@ecoconsult.com.br',
+  location: 'São Paulo - SP'
+}
+
+const currentYear = computed<number>(() => new Date().getFullYear())
 </script>

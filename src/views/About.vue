@@ -30,20 +30,14 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-8 mb-16">
-        <div class="text-center">
-          <Users class="h-16 w-16 text-blue-600 mx-auto mb-4" />
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Equipe Especializada</h3>
-          <p class="text-gray-600">Profissionais qualificados e experientes</p>
-        </div>
-        <div class="text-center">
-          <Award class="h-16 w-16 text-green-600 mx-auto mb-4" />
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Qualidade Garantida</h3>
-          <p class="text-gray-600">Processos certificados e resultados comprovados</p>
-        </div>
-        <div class="text-center">
-          <Clock class="h-16 w-16 text-blue-600 mx-auto mb-4" />
-          <h3 class="text-xl font-bold text-gray-800 mb-2">Agilidade</h3>
-          <p class="text-gray-600">Prazos cumpridos e atendimento eficiente</p>
+        <div 
+          v-for="feature in features" 
+          :key="feature.title"
+          class="text-center"
+        >
+          <component :is="feature.icon" :class="`h-16 w-16 ${feature.color} mx-auto mb-4`" />
+          <h3 class="text-xl font-bold text-gray-800 mb-2">{{ feature.title }}</h3>
+          <p class="text-gray-600">{{ feature.description }}</p>
         </div>
       </div>
 
@@ -51,40 +45,17 @@
       <div class="bg-gray-50 p-8 rounded-lg">
         <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Nossa História</h2>
         <div class="space-y-8">
-          <div class="flex items-center">
-            <div class="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-6">
-              2015
+          <div 
+            v-for="milestone in timeline" 
+            :key="milestone.year"
+            class="flex items-center"
+          >
+            <div :class="`${milestone.color} text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-6`">
+              {{ milestone.year }}
             </div>
             <div>
-              <h4 class="text-xl font-semibold text-gray-800">Fundação da EcoConsult</h4>
-              <p class="text-gray-600">Início das atividades com foco em licenciamento ambiental</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-6">
-              2018
-            </div>
-            <div>
-              <h4 class="text-xl font-semibold text-gray-800">Expansão dos Serviços</h4>
-              <p class="text-gray-600">Inclusão de serviços de vistoria e controle de licenças</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <div class="bg-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-6">
-              2021
-            </div>
-            <div>
-              <h4 class="text-xl font-semibold text-gray-800">Certificação ISO</h4>
-              <p class="text-gray-600">Obtenção da certificação ISO 14001 para gestão ambiental</p>
-            </div>
-          </div>
-          <div class="flex items-center">
-            <div class="bg-blue-600 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold mr-6">
-              2024
-            </div>
-            <div>
-              <h4 class="text-xl font-semibold text-gray-800">Mais de 500 Clientes</h4>
-              <p class="text-gray-600">Marco de 500 empresas atendidas com sucesso</p>
+              <h4 class="text-xl font-semibold text-gray-800">{{ milestone.title }}</h4>
+              <p class="text-gray-600">{{ milestone.description }}</p>
             </div>
           </div>
         </div>
@@ -93,16 +64,69 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
+import { type Component } from 'vue'
 import { Shield, Users, Award, Clock } from 'lucide-vue-next'
 
-export default {
-  name: 'About',
-  components: {
-    Shield,
-    Users,
-    Award,
-    Clock
-  }
+interface Feature {
+  title: string
+  description: string
+  icon: Component
+  color: string
 }
+
+interface TimelineMilestone {
+  year: string
+  title: string
+  description: string
+  color: string
+}
+
+const features: Feature[] = [
+  {
+    title: 'Equipe Especializada',
+    description: 'Profissionais qualificados e experientes',
+    icon: Users,
+    color: 'text-blue-600'
+  },
+  {
+    title: 'Qualidade Garantida',
+    description: 'Processos certificados e resultados comprovados',
+    icon: Award,
+    color: 'text-green-600'
+  },
+  {
+    title: 'Agilidade',
+    description: 'Prazos cumpridos e atendimento eficiente',
+    icon: Clock,
+    color: 'text-blue-600'
+  }
+]
+
+const timeline: TimelineMilestone[] = [
+  {
+    year: '2015',
+    title: 'Fundação da EcoConsult',
+    description: 'Início das atividades com foco em licenciamento ambiental',
+    color: 'bg-green-600'
+  },
+  {
+    year: '2018',
+    title: 'Expansão dos Serviços',
+    description: 'Inclusão de serviços de vistoria e controle de licenças',
+    color: 'bg-blue-600'
+  },
+  {
+    year: '2021',
+    title: 'Certificação ISO',
+    description: 'Obtenção da certificação ISO 14001 para gestão ambiental',
+    color: 'bg-green-600'
+  },
+  {
+    year: '2024',
+    title: 'Mais de 500 Clientes',
+    description: 'Marco de 500 empresas atendidas com sucesso',
+    color: 'bg-blue-600'
+  }
+]
 </script>

@@ -34,16 +34,7 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import ServiceCard from '@/components/ServiceCard.vue'
 import { services } from '@/data/services'
-
-export default {
-  name: 'Services',
-  data() {
-    return {
-      services
-    }
-  }
-}
 </script>

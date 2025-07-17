@@ -28,12 +28,14 @@
         <button 
           @click="prevSlide"
           class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors"
+          aria-label="Slide anterior"
         >
           <ChevronLeft class="h-6 w-6 text-gray-600" />
         </button>
         <button 
           @click="nextSlide"
           class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg rounded-full p-2 hover:bg-gray-50 transition-colors"
+          aria-label="Próximo slide"
         >
           <ChevronRight class="h-6 w-6 text-gray-600" />
         </button>
@@ -43,11 +45,12 @@
           <button
             v-for="(slide, index) in clientSlides"
             :key="index"
-            @click="currentSlide = index"
+            @click="goToSlide(index)"
             :class="[
               'w-3 h-3 rounded-full transition-colors',
               currentSlide === index ? 'bg-green-600' : 'bg-gray-300'
             ]"
+            :aria-label="`Ir para slide ${index + 1}`"
           />
         </div>
       </div>
@@ -55,55 +58,55 @@
   </section>
 </template>
 
-<script>
+<script setup lang="ts">
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next'
 import { clients } from '@/data/clients'
+import type { Client } from '@/types'
 
-export default {
-  name: 'ClientCarousel',
-  components: {
-    ChevronLeft,
-    ChevronRight
-  },
-  data() {
-    return {
-      currentSlide: 0,
-      carouselInterval: null,
-      clients
-    }
-  },
-  computed: {
-    clientSlides() {
-      const slides = []
-      for (let i = 0; i < this.clients.length; i += 4) {
-        slides.push(this.clients.slice(i, i + 4))
-      }
-      return slides
-    }
-  },
-  mounted() {
-    this.startCarousel()
-  },
-  beforeUnmount() {
-    this.stopCarousel()
-  },
-  methods: {
-    startCarousel() {
-      this.carouselInterval = setInterval(() => {
-        this.nextSlide()
-      }, 4000)
-    },
-    stopCarousel() {
-      if (this.carouselInterval) {
-        clearInterval(this.carouselInterval)
-      }
-    },
-    nextSlide() {
-      this.currentSlide = (this.currentSlide + 1) % this.clientSlides.length
-    },
-    prevSlide() {
-      this.currentSlide = this.currentSlide === 0 ? this.clientSlides.length - 1 : this.currentSlide - 1
-    }
+const currentSlide = ref<number>(0)
+const carouselInterval = ref<NodeJS.Timeout | null>(null)
+
+const clientSlides = computed<Client[][]>(() => {
+  const slides: Client[][] = []
+  for (let i = 0; i < clients.length; i += 4) {
+    slides.push(clients.slice(i, i + 4))
+  }
+  return slides
+})
+
+const startCarousel = (): void => {
+  carouselInterval.value = setInterval(() => {
+    nextSlide()
+  }, 4000)
+}
+
+const stopCarousel = (): void => {
+  if (carouselInterval.value) {
+    clearInterval(carouselInterval.value)
+    carouselInterval.value = null
   }
 }
+
+const nextSlide = (): void => {
+  currentSlide.value = (currentSlide.value + 1) % clientSlides.value.length
+}
+
+const prevSlide = (): void => {
+  currentSlide.value = currentSlide.value === 0 
+    ? clientSlides.value.length - 1 
+    : currentSlide.value - 1
+}
+
+const goToSlide = (index: number): void => {
+  currentSlide.value = index
+}
+
+onMounted(() => {
+  startCarousel()
+})
+
+onBeforeUnmount(() => {
+  stopCarousel()
+})
 </script>

@@ -23,32 +23,15 @@
         <div>
           <h3 class="text-2xl font-bold text-gray-800 mb-6">O que analisamos:</h3>
           <div class="space-y-4">
-            <div class="flex items-start">
+            <div 
+              v-for="analysis in analysisItems" 
+              :key="analysis.title"
+              class="flex items-start"
+            >
               <Check class="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
               <div>
-                <h4 class="font-semibold text-gray-800">Acessos e Circulação</h4>
-                <p class="text-gray-600">Rampas, corredores, portas e passagens</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <Check class="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
-              <div>
-                <h4 class="font-semibold text-gray-800">Sanitários Adaptados</h4>
-                <p class="text-gray-600">Banheiros com equipamentos adequados</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <Check class="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
-              <div>
-                <h4 class="font-semibold text-gray-800">Sinalização</h4>
-                <p class="text-gray-600">Placas em braile e sinalização visual</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <Check class="h-6 w-6 text-green-600 mr-3 mt-1 flex-shrink-0" />
-              <div>
-                <h4 class="font-semibold text-gray-800">Estacionamento</h4>
-                <p class="text-gray-600">Vagas reservadas e adequadas</p>
+                <h4 class="font-semibold text-gray-800">{{ analysis.title }}</h4>
+                <p class="text-gray-600">{{ analysis.description }}</p>
               </div>
             </div>
           </div>
@@ -57,25 +40,17 @@
         <div class="bg-gray-50 p-8 rounded-lg">
           <h3 class="text-2xl font-bold text-gray-800 mb-6">Nosso Processo:</h3>
           <div class="space-y-6">
-            <div class="flex items-center">
-              <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">1</div>
-              <div>
-                <h4 class="font-semibold text-gray-800">Vistoria Técnica</h4>
-                <p class="text-gray-600">Análise completa das instalações</p>
+            <div 
+              v-for="(step, index) in processSteps" 
+              :key="step.title"
+              class="flex items-center"
+            >
+              <div :class="`${step.color} text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4`">
+                {{ index + 1 }}
               </div>
-            </div>
-            <div class="flex items-center">
-              <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">2</div>
               <div>
-                <h4 class="font-semibold text-gray-800">Relatório Detalhado</h4>
-                <p class="text-gray-600">Documentação de conformidades e não-conformidades</p>
-              </div>
-            </div>
-            <div class="flex items-center">
-              <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-4">3</div>
-              <div>
-                <h4 class="font-semibold text-gray-800">Emissão do Laudo</h4>
-                <p class="text-gray-600">Documento oficial com validade legal</p>
+                <h4 class="font-semibold text-gray-800">{{ step.title }}</h4>
+                <p class="text-gray-600">{{ step.description }}</p>
               </div>
             </div>
           </div>
@@ -95,34 +70,26 @@
           <div>
             <h4 class="text-lg font-semibold text-gray-800 mb-4">Principais Normas:</h4>
             <ul class="space-y-2">
-              <li class="flex items-center">
+              <li 
+                v-for="norm in norms" 
+                :key="norm.code"
+                class="flex items-center"
+              >
                 <FileText class="h-5 w-5 text-green-600 mr-2" />
-                <span class="text-gray-700">NBR 9050/2020 - Acessibilidade</span>
-              </li>
-              <li class="flex items-center">
-                <FileText class="h-5 w-5 text-green-600 mr-2" />
-                <span class="text-gray-700">Lei 13.146/2015 - Lei Brasileira de Inclusão</span>
-              </li>
-              <li class="flex items-center">
-                <FileText class="h-5 w-5 text-green-600 mr-2" />
-                <span class="text-gray-700">Decreto 5.296/2004</span>
+                <span class="text-gray-700">{{ norm.code }} - {{ norm.description }}</span>
               </li>
             </ul>
           </div>
           <div>
             <h4 class="text-lg font-semibold text-gray-800 mb-4">Estabelecimentos Obrigatórios:</h4>
             <ul class="space-y-2">
-              <li class="flex items-center">
+              <li 
+                v-for="establishment in establishments" 
+                :key="establishment"
+                class="flex items-center"
+              >
                 <Building class="h-5 w-5 text-blue-600 mr-2" />
-                <span class="text-gray-700">Edifícios comerciais</span>
-              </li>
-              <li class="flex items-center">
-                <Building class="h-5 w-5 text-blue-600 mr-2" />
-                <span class="text-gray-700">Estabelecimentos de saúde</span>
-              </li>
-              <li class="flex items-center">
-                <Building class="h-5 w-5 text-blue-600 mr-2" />
-                <span class="text-gray-700">Instituições de ensino</span>
+                <span class="text-gray-700">{{ establishment }}</span>
               </li>
             </ul>
           </div>
@@ -138,16 +105,71 @@
   </div>
 </template>
 
-<script>
+<script setup lang="ts">
 import { Accessibility, Check, FileText, Building } from 'lucide-vue-next'
 
-export default {
-  name: 'Accessibility',
-  components: {
-    Accessibility,
-    Check,
-    FileText,
-    Building
-  }
+interface AnalysisItem {
+  title: string
+  description: string
 }
+
+interface ProcessStep {
+  title: string
+  description: string
+  color: string
+}
+
+interface Norm {
+  code: string
+  description: string
+}
+
+const analysisItems: AnalysisItem[] = [
+  {
+    title: 'Acessos e Circulação',
+    description: 'Rampas, corredores, portas e passagens'
+  },
+  {
+    title: 'Sanitários Adaptados',
+    description: 'Banheiros com equipamentos adequados'
+  },
+  {
+    title: 'Sinalização',
+    description: 'Placas em braile e sinalização visual'
+  },
+  {
+    title: 'Estacionamento',
+    description: 'Vagas reservadas e adequadas'
+  }
+]
+
+const processSteps: ProcessStep[] = [
+  {
+    title: 'Vistoria Técnica',
+    description: 'Análise completa das instalações',
+    color: 'bg-green-600'
+  },
+  {
+    title: 'Relatório Detalhado',
+    description: 'Documentação de conformidades e não-conformidades',
+    color: 'bg-blue-600'
+  },
+  {
+    title: 'Emissão do Laudo',
+    description: 'Documento oficial com validade legal',
+    color: 'bg-green-600'
+  }
+]
+
+const norms: Norm[] = [
+  { code: 'NBR 9050/2020', description: 'Acessibilidade' },
+  { code: 'Lei 13.146/2015', description: 'Lei Brasileira de Inclusão' },
+  { code: 'Decreto 5.296/2004', description: 'Regulamentação de acessibilidade' }
+]
+
+const establishments: string[] = [
+  'Edifícios comerciais',
+  'Estabelecimentos de saúde',
+  'Instituições de ensino'
+]
 </script>
