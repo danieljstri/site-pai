@@ -3,7 +3,15 @@
     <!-- Hero Section -->
     <section class="services-hero">
       <div class="hero-background">
-        <div class="hero-overlay"></div>
+        <div class="hero-overlay">
+          <img 
+            src="https://th.bing.com/th/id/R.4057339bff3abfd2b9fa5b0d5f81ddc9?rik=6gkk%2bJMtaPfv0w&pid=ImgRaw&r=0"
+            width="1200"
+            height="600" 
+            alt="Serviços Ambientais" 
+            class="hero-image"
+          />
+        </div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -14,7 +22,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Services Grid -->
     <section class="services-content">
       <div class="container">
@@ -56,7 +64,7 @@
               Nosso processo é estruturado para garantir eficiência e qualidade
             </p>
           </div>
-          
+
           <div class="process-grid">
             <div class="process-step green">
               <div class="step-number">1</div>
@@ -66,7 +74,7 @@
               <h3>Análise Inicial</h3>
               <p>Avaliamos suas necessidades e requisitos específicos</p>
             </div>
-            
+
             <div class="process-step blue">
               <div class="step-number">2</div>
               <div class="step-icon">
@@ -75,7 +83,7 @@
               <h3>Documentação</h3>
               <p>Preparamos toda a documentação necessária</p>
             </div>
-            
+
             <div class="process-step green">
               <div class="step-number">3</div>
               <div class="step-icon">
@@ -84,7 +92,7 @@
               <h3>Aprovação</h3>
               <p>Acompanhamos o processo até a aprovação final</p>
             </div>
-            
+
             <div class="process-step blue">
               <div class="step-number">4</div>
               <div class="step-icon">
@@ -109,29 +117,92 @@ import { services } from '@/data/services'
 <style scoped>
 .services-hero {
   position: relative;
-  padding: var(--spacing-20) 0;
-  min-height: 60vh;
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
   display: flex;
   align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
   overflow: hidden;
 }
 
-.services-content {
-  padding: var(--spacing-20) 0;
-  background: linear-gradient(135deg, var(--gray-50), var(--primary-50));
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
-.services-cta {
-  margin: var(--spacing-20) 0;
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.services-content {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--pigment-green-100), var(--sgbus-green-100));
 }
 
 .cta-card {
   background: white;
-  padding: var(--spacing-12);
-  border-radius: var(--border-radius-xl);
+  padding: 3rem;
+  border-radius: 1rem;
   text-align: center;
-  box-shadow: var(--shadow-lg);
-  border: 2px solid var(--primary-100);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--pigment-green-100);
   position: relative;
   overflow: hidden;
 }
@@ -143,61 +214,65 @@ import { services } from '@/data/services'
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, var(--primary-600), var(--secondary-600));
+  background: linear-gradient(90deg, var(--pigment-green-600), var(--berkeley-blue-600));
 }
 
 .cta-icon {
   width: 80px;
   height: 80px;
-  margin: 0 auto var(--spacing-6);
-  background: linear-gradient(135deg, var(--primary-100), var(--secondary-100));
-  border-radius: var(--border-radius-full);
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, var(--pigment-green-100), var(--berkeley-blue-100));
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--primary-600);
+  color: var(--pigment-green-600);
 }
 
 .cta-card h2 {
-  font-size: var(--font-size-3xl);
+  font-size: 2rem;
   font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-4);
+  color: var(--berkeley-blue-600);
+  margin-bottom: 1rem;
 }
 
 .cta-card p {
-  font-size: var(--font-size-lg);
-  color: var(--gray-600);
-  margin-bottom: var(--spacing-8);
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.125rem;
+  color: #555;
+  margin-bottom: 2rem;
 }
 
 .cta-actions {
   display: flex;
-  gap: var(--spacing-4);
+  gap: 1rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
+.section-title {
+  color:  var(--pigment-green-600);
+}
+
+.section-subtitle {
+  color: var(--pigment-green-600)
+}
 .process-section {
-  margin-top: var(--spacing-20);
+  margin-top: 6rem;
 }
 
 .process-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: var(--spacing-8);
+  gap: 2rem;
 }
 
 .process-step {
   background: white;
-  padding: var(--spacing-8);
-  border-radius: var(--border-radius-xl);
+  padding: 2rem;
+  border-radius: 1rem;
   text-align: center;
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
   position: relative;
   border: 2px solid transparent;
 }
@@ -209,72 +284,67 @@ import { services } from '@/data/services'
   left: 0;
   right: 0;
   height: 4px;
-  border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0;
+  border-radius: 1rem 1rem 0 0;
 }
 
 .process-step.green::before {
-  background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
+  background: linear-gradient(90deg, var(--pigment-green-500), var(--pigment-green-600));
 }
 
 .process-step.blue::before {
-  background: linear-gradient(90deg, var(--secondary-500), var(--secondary-600));
-}
-
-.process-step:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  background: linear-gradient(90deg, var(--berkeley-blue-500), var(--berkeley-blue-600));
 }
 
 .process-step.green:hover {
-  border-color: var(--primary-200);
+  border-color: var(--pigment-green-200);
 }
 
 .process-step.blue:hover {
-  border-color: var(--secondary-200);
+  border-color: var(--berkeley-blue-200);
 }
 
 .step-number {
   position: absolute;
   top: -15px;
-  right: var(--spacing-6);
+  right: 1rem;
   width: 30px;
   height: 30px;
-  border-radius: var(--border-radius-full);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   color: white;
 }
 
 .process-step.green .step-number {
-  background: var(--primary-600);
+  background: var(--pigment-green-600);
 }
 
 .process-step.blue .step-number {
-  background: var(--secondary-600);
+  background: var(--berkeley-blue-600);
 }
 
 .step-icon {
   width: 64px;
   height: 64px;
-  margin: 0 auto var(--spacing-4);
-  border-radius: var(--border-radius-full);
+  margin: 0 auto 1rem;
+  border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all var(--transition-normal);
+  transition: all 0.3s ease;
 }
 
 .process-step.green .step-icon {
-  background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-  color: var(--primary-600);
+  background: linear-gradient(135deg, var(--pigment-green-100), var(--pigment-green-200));
+  color: var(--pigment-green-600);
 }
 
 .process-step.blue .step-icon {
-  background: linear-gradient(135deg, var(--secondary-100), var(--secondary-200));
-  color: var(--secondary-600);
+  background: linear-gradient(135deg, var(--berkeley-blue-100), var(--berkeley-blue-200));
+  color: var(--berkeley-blue-600);
 }
 
 .process-step:hover .step-icon {
@@ -282,53 +352,14 @@ import { services } from '@/data/services'
 }
 
 .process-step h3 {
-  font-size: var(--font-size-xl);
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: var(--spacing-3);
-  color: var(--gray-800);
+  margin-bottom: 1rem;
+  color: var(--berkeley-blue-700);
 }
 
 .process-step p {
-  color: var(--gray-600);
+  color: #666;
   line-height: 1.6;
-  margin-bottom: 0;
-}
-
-@media (max-width: 768px) {
-  .services-hero {
-    min-height: 50vh;
-    padding: var(--spacing-16) 0;
-  }
-
-  .services-content {
-    padding: var(--spacing-16) 0;
-  }
-
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-actions .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-
-  .process-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-6);
-  }
-
-  .cta-card {
-    padding: var(--spacing-8);
-  }
-
-  .cta-card h2 {
-    font-size: var(--font-size-2xl);
-  }
-
-  .cta-card p {
-    font-size: var(--font-size-base);
-  }
 }
 </style>

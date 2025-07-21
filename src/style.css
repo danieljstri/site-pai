@@ -3,9 +3,56 @@
 @import "./styles/components.css";
 @import "./styles/layout.css";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root {
+  /* Pigment Green */
+  --pigment-green: #00a957;
+  --pigment-green-100: #002211;
+  --pigment-green-200: #004323;
+  --pigment-green-300: #006534;
+  --pigment-green-400: #008746;
+  --pigment-green-500: #00a957;
+  --pigment-green-600: #00ed7a;
+  --pigment-green-700: #32ff9c;
+  --pigment-green-800: #76ffbd;
+  --pigment-green-900: #bbffde;
+
+  /* SGBUS Green */
+  --sgbus-green: #00eb00;
+  --sgbus-green-100: #002f00;
+  --sgbus-green-200: #005e00;
+  --sgbus-green-300: #008d00;
+  --sgbus-green-400: #00bc00;
+  --sgbus-green-500: #00eb00;
+  --sgbus-green-600: #23ff23;
+  --sgbus-green-700: #5aff5a;
+  --sgbus-green-800: #91ff91;
+  --sgbus-green-900: #c8ffc8;
+
+  /* Green Custom */
+  --green-custom: #00ff00;
+  --green-custom-100: #003300;
+  --green-custom-200: #006600;
+  --green-custom-300: #009900;
+  --green-custom-400: #00cc00;
+  --green-custom-500: #00ff00;
+  --green-custom-600: #33ff33;
+  --green-custom-700: #66ff66;
+  --green-custom-800: #99ff99;
+  --green-custom-900: #ccffcc;
+
+  /* Berkeley Blue */
+  --berkeley-blue: #123256;
+  --berkeley-blue-100: #040a11;
+  --berkeley-blue-200: #071422;
+  --berkeley-blue-300: #0b1d32;
+  --berkeley-blue-400: #0e2743;
+  --berkeley-blue-500: #123256;
+  --berkeley-blue-600: #205897;
+  --berkeley-blue-700: #357fd4;
+  --berkeley-blue-800: #78aae2;
+  --berkeley-blue-900: #bcd4f1;
+}
+
 
 @layer base {
   html {
