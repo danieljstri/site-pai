@@ -3,7 +3,7 @@
     <div class="header-container">
       <router-link to="/" class="header-logo">
         <Leaf />
-        EcoConsult
+        EcoBrasil
       </router-link>
       
       <!-- Desktop Navigation -->

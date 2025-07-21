@@ -3,6 +3,11 @@
     <!-- Hero Section -->
     <section class="contact-hero">
       <div class="hero-background">
+        <img 
+          src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+          alt="Escritório moderno - entre em contato conosco"
+          class="hero-image"
+        />
         <div class="hero-overlay"></div>
       </div>
       <div class="container">
@@ -252,7 +257,7 @@ const contactInfo: ContactInfo[] = [
   {
     type: 'email',
     label: 'Email',
-    value: 'contato@ecoconsult.com.br',
+    value: 'contato@ecobrasil.com.br',
     icon: Mail,
     color: 'secondary'
   },
@@ -314,6 +319,61 @@ const submitForm = async (): Promise<void> => {
   display: flex;
   align-items: center;
   overflow: hidden;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 169, 87, 0.8),
+    rgba(18, 50, 86, 0.7)
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-4);
+  color: var(--text-light);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-lg);
+  margin-bottom: 0;
+  opacity: 0.95;
+  line-height: 1.6;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .contact-content {

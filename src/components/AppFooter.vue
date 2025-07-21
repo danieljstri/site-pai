@@ -5,7 +5,7 @@
         <div class="footer-section">
           <div class="footer-logo">
             <Leaf class="footer-icon" />
-            EcoConsult
+            EcoBrasil
           </div>
           <p class="footer-description">
             Sua parceira em consultoria ambiental, garantindo conformidade e sustentabilidade.
@@ -45,7 +45,7 @@
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; {{ currentYear }} EcoConsult. Todos os direitos reservados.</p>
+        <p>&copy; {{ currentYear }} EcoBrasil. Todos os direitos reservados.</p>
       </div>
     </div>
   </footer>
@@ -70,7 +70,7 @@ const servicesList: string[] = [
 
 const contactInfo: ContactInfo = {
   phone: '(11) 9999-9999',
-  email: 'contato@ecoconsult.com.br',
+  email: 'contato@ecobrasil.com.br',
   location: 'São Paulo - SP'
 }
 
@@ -81,7 +81,7 @@ const currentYear = computed<number>(() => new Date().getFullYear())
 
 .footer {
   background-color: var(--berkeley-blue-200);
-  color: var();
+  color: var(--text-light);
   padding: 3rem 1rem 2rem;
 }
 

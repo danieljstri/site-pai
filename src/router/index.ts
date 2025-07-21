@@ -16,7 +16,7 @@ const routes: RouteRecordRaw[] = [
     name: "Home",
     component: Home,
     meta: {
-      title: "EcoConsult - Consultoria Ambiental",
+      title: "EcoBrasil - Consultoria Ambiental",
     },
   },
   {
@@ -24,7 +24,7 @@ const routes: RouteRecordRaw[] = [
     name: "Services",
     component: Services,
     meta: {
-      title: "Serviços - EcoConsult",
+      title: "Serviços - EcoBrasil",
     },
   },
   {
@@ -32,7 +32,7 @@ const routes: RouteRecordRaw[] = [
     name: "About",
     component: About,
     meta: {
-      title: "Sobre - EcoConsult",
+      title: "Sobre - EcoBrasil",
     },
   },
   {
@@ -40,7 +40,7 @@ const routes: RouteRecordRaw[] = [
     name: "Accessibility",
     component: Accessibility,
     meta: {
-      title: "Laudo de Acessibilidade - EcoConsult",
+      title: "Laudo de Acessibilidade - EcoBrasil",
     },
   },
   {
@@ -48,7 +48,7 @@ const routes: RouteRecordRaw[] = [
     name: "Contact",
     component: Contact,
     meta: {
-      title: "Contatos - EcoConsult",
+      title: "Contatos - EcoBrasil",
     },
   },
 ]
@@ -66,7 +66,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.meta.title || "EcoConsult"
+  document.title = to.meta.title || "EcoBrasil"
   next()
 })
 

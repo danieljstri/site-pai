@@ -3,11 +3,16 @@
     <!-- Hero Section -->
     <section class="about-hero">
       <div class="hero-background">
+        <img 
+          src="https://th.bing.com/th/id/R.4a0bcc040d839558a4cb580481bcafb4?rik=xQuWft%2f40kvRbw&riu=http%3a%2f%2fwww.eas.ufma.br%2fwp-content%2fuploads%2f2020%2f11%2fcropped-educao-e-sociedade-ambiental-1024x614.jpg&ehk=sRfboHSWfEcu4iQM44RDZwfnnquRHH5y1nkWZY8L5NE%3d&risl=&pid=ImgRaw&r=0" 
+          alt="Equipe de engenheiros ambientais trabalhando em campo"
+          class="hero-image"
+        />
         <div class="hero-overlay"></div>
       </div>
       <div class="container">
         <div class="hero-content">
-          <h1 class="hero-title animate-fade-in-up">Sobre a EcoConsult</h1>
+          <h1 class="hero-title animate-fade-in-up">Sobre a EcoBrasil</h1>
           <p class="hero-subtitle animate-fade-in-up">
             Especialistas em consultoria ambiental com anos de experiência no mercado.
           </p>
@@ -45,12 +50,11 @@
             </div>
           </div>
           <div class="mission-image">
-            <div class="image-overlay">
               <div class="overlay-content">
                 <Shield />
                 <h3>Compromisso com a Excelência</h3>
                 <p>Mais de 500 empresas atendidas com 100% de aprovação em licenciamentos.</p>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -229,7 +233,7 @@ const features: Feature[] = [
 const timeline: TimelineMilestone[] = [
   {
     year: '2015',
-    title: 'Fundação da EcoConsult',
+    title: 'Fundação da EcoBrasil',
     description: 'Início das atividades com foco em licenciamento ambiental',
     color: 'green'
   },
@@ -262,6 +266,60 @@ const timeline: TimelineMilestone[] = [
   display: flex;
   align-items: center;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 169, 87, 0.8),
+    rgba(18, 50, 86, 0.7)
+  );
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.hero-title {
+  font-size: var(--font-size-5xl);
+  font-weight: 800;
+  margin-bottom: var(--spacing-6);
+  color: var(--text-light);
+}
+
+.hero-subtitle {
+  font-size: var(--font-size-xl);
+  margin-bottom: 0;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .mission-section {
@@ -305,6 +363,7 @@ const timeline: TimelineMilestone[] = [
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
   border: 2px solid transparent;
+  position: relative;
 }
 
 .stat-item::before {
@@ -362,6 +421,11 @@ const timeline: TimelineMilestone[] = [
   border-radius: var(--border-radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mission-image img {
@@ -376,34 +440,122 @@ const timeline: TimelineMilestone[] = [
   left: 0;
   right: 0;
   background: linear-gradient(to top, 
-    rgba(22, 163, 74, 0.9), 
-    rgba(37, 99, 235, 0.8)
+    rgba(0, 169, 87, 0.9), 
+    rgba(18, 50, 86, 0.8)
   );
   color: white;
   padding: var(--spacing-8);
   text-align: center;
 }
 
+.overlay-content {
+  color: var(--text-light);
+}
+
 .overlay-content svg {
   width: 48px;
   height: 48px;
   margin-bottom: var(--spacing-4);
+  color: var(--text-light);
 }
 
 .overlay-content h3 {
   font-size: var(--font-size-xl);
   font-weight: 600;
   margin-bottom: var(--spacing-2);
+  color: var(--text-light);
 }
 
 .overlay-content p {
-  opacity: 0.9;
+  opacity: 0.95;
   margin-bottom: 0;
+  color: var(--text-light);
 }
 
 .features-section {
   padding: var(--spacing-20) 0;
   background: white;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-16);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: var(--spacing-4);
+}
+
+.section-subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--gray-600);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-8);
+}
+
+.feature-card {
+  background: white;
+  padding: var(--spacing-8);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-card.green:hover {
+  border-color: var(--primary-200);
+}
+
+.feature-card.blue:hover {
+  border-color: var(--secondary-200);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--spacing-6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full);
+}
+
+.feature-card.green .feature-icon {
+  background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
+  color: var(--primary-600);
+}
+
+.feature-card.blue .feature-icon {
+  background: linear-gradient(135deg, var(--secondary-100), var(--secondary-200));
+  color: var(--secondary-600);
+}
+
+.feature-card h3 {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--gray-800);
+  margin-bottom: var(--spacing-4);
+}
+
+.feature-card p {
+  color: var(--gray-600);
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .timeline-section {
@@ -441,13 +593,14 @@ const timeline: TimelineMilestone[] = [
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: var(--text-light);
   font-weight: 700;
   font-size: var(--font-size-sm);
   margin-right: var(--spacing-8);
   flex-shrink: 0;
   position: relative;
   z-index: 1;
+  box-shadow: var(--shadow-md);
 }
 
 .timeline-marker.green {
@@ -471,6 +624,7 @@ const timeline: TimelineMilestone[] = [
 .timeline-content:hover {
   box-shadow: var(--shadow-md);
   border-color: var(--primary-100);
+  transform: translateY(-2px);
 }
 
 .timeline-content h4 {
@@ -515,6 +669,11 @@ const timeline: TimelineMilestone[] = [
 .team-image {
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .team-image img {
@@ -544,6 +703,7 @@ const timeline: TimelineMilestone[] = [
   color: var(--primary-600);
   font-weight: 500;
   margin-bottom: var(--spacing-3);
+  font-size: var(--font-size-sm);
 }
 
 .team-description {
@@ -552,6 +712,83 @@ const timeline: TimelineMilestone[] = [
   margin-bottom: 0;
 }
 
+.cta-section {
+  position: relative;
+  padding: var(--spacing-20) 0;
+  overflow: hidden;
+}
+
+.cta-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  z-index: 1;
+}
+
+.cta-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.cta-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--text-light);
+}
+
+.cta-content h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  margin-bottom: var(--spacing-4);
+  color: var(--text-light);
+}
+
+.cta-content p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-8);
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-actions {
+  display: flex;
+  gap: var(--spacing-4);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cta-actions .btn {
+  min-width: 160px;
+}
+
+/* Animações */
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media Queries Responsivos */
 @media (max-width: 1024px) {
   .mission-content {
     grid-template-columns: 1fr;
@@ -570,6 +807,11 @@ const timeline: TimelineMilestone[] = [
     grid-template-columns: repeat(3, 1fr);
     gap: var(--spacing-4);
   }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-6);
+  }
 }
 
 @media (max-width: 768px) {
@@ -578,10 +820,19 @@ const timeline: TimelineMilestone[] = [
     padding: var(--spacing-12) 0;
   }
 
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+
   .mission-section,
   .features-section,
   .timeline-section,
-  .team-section {
+  .team-section,
+  .cta-section {
     padding: var(--spacing-16) 0;
   }
 
@@ -618,9 +869,39 @@ const timeline: TimelineMilestone[] = [
   .mission-text p {
     font-size: var(--font-size-base);
   }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .cta-content h2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .cta-content p {
+    font-size: var(--font-size-base);
+  }
+
+  .cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cta-actions .btn {
+    width: 100%;
+    max-width: 280px;
+  }
 }
 
 @media (max-width: 480px) {
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+
   .stat-item {
     padding: var(--spacing-4);
   }
@@ -643,6 +924,27 @@ const timeline: TimelineMilestone[] = [
 
   .overlay-content h3 {
     font-size: var(--font-size-lg);
+  }
+
+  .feature-card {
+    padding: var(--spacing-6);
+  }
+
+  .feature-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .about-hero {
+    padding: var(--spacing-8) 0;
+  }
+
+  .mission-section,
+  .features-section,
+  .timeline-section,
+  .team-section,
+  .cta-section {
+    padding: var(--spacing-12) 0;
   }
 }
 </style>

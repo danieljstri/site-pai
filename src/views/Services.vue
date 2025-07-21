@@ -193,7 +193,7 @@ import { services } from '@/data/services'
 
 .services-content {
   padding: 6rem 0;
-  background: linear-gradient(135deg, var(--pigment-green-100), var(--sgbus-green-100));
+  background: shite;
 }
 
 .cta-card {
@@ -250,11 +250,11 @@ import { services } from '@/data/services'
 }
 
 .section-title {
-  color:  var(--pigment-green-600);
+  color:  var(--berkeley-blue-500);
 }
 
 .section-subtitle {
-  color: var(--pigment-green-600)
+  color: var(--berkeley-blue-500)
 }
 .process-section {
   margin-top: 6rem;
