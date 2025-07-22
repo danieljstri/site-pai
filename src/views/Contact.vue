@@ -8,7 +8,6 @@
           alt="Escritório moderno - entre em contato conosco"
           class="hero-image"
         />
-        <div class="hero-overlay"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -337,19 +336,6 @@ const submitForm = async (): Promise<void> => {
   object-position: center;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 169, 87, 0.8),
-    rgba(18, 50, 86, 0.7)
-  );
-  z-index: 2;
-}
 
 .hero-content {
   position: relative;
@@ -358,6 +344,8 @@ const submitForm = async (): Promise<void> => {
   color: var(--text-light);
   max-width: 600px;
   margin: 0 auto;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .hero-title {
@@ -397,7 +385,7 @@ const submitForm = async (): Promise<void> => {
 }
 
 .form-header {
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  background: var(--pigment-green-400);
   color: white;
   padding: var(--spacing-8);
   text-align: center;
@@ -548,7 +536,7 @@ const submitForm = async (): Promise<void> => {
 }
 
 .emergency-card {
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  background: var(--berkeley-blue-400);
   color: white;
   border-radius: var(--border-radius-xl);
   padding: var(--spacing-8);

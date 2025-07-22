@@ -4,11 +4,10 @@
     <section class="accessibility-hero">
       <div class="hero-background">
         <img 
-          src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+          src="https://img.freepik.com/fotos-gratis/pessoa-com-deficiencia-viajando-na-cidade_23-2149494533.jpg?semt=ais_hybrid&w=740" 
           alt="Rampa de acessibilidade em edifício moderno"
           class="hero-image"
         />
-        <div class="hero-overlay"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -253,19 +252,6 @@ const establishments: string[] = [
   object-position: center;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 169, 87, 0.8),
-    rgba(18, 50, 86, 0.7)
-  );
-  z-index: 2;
-}
 
 .hero-content {
   position: relative;
@@ -274,6 +260,8 @@ const establishments: string[] = [
   color: var(--text-light);
   max-width: 800px;
   margin: 0 auto;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .hero-icon {

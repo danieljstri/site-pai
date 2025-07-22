@@ -26,32 +26,31 @@
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+  background: var(--pigment-green-300);
   color: white;
   box-shadow: var(--shadow);
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-400), var(--secondary-400));
+  background: var(--pigment-green-500);
+  color: black;
   box-shadow: var(--shadow-md);
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: white;
-  color: var(--primary-600);
-  border-color: var(--primary-600);
+  background: var(--berkeley-blue-300);
+  color: var(--pigment-green-600);
 }
 
 .btn-secondary:hover {
-  background: var(--primary-50);
-  color: var(--primary-700);
+  background: var(--pigment-green-600);
+  color: var(--berkeley-blue-300);
 }
 
 .btn-outline {
-  background: white;
-  color: var(--gray-700);
-  border-color: var(--gray-300);
+  background: var(--berkeley-blue-400);
+  color: var(--pigment-green-500);
 }
 
 .btn-outline:hover {

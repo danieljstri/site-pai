@@ -8,7 +8,6 @@
           alt="Energia renovável - painéis solares em campo verde"
           class="hero-image"
         />
-        <div class="hero-overlay"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -190,20 +189,6 @@ const featuredServices = computed<Service[]>(() => services.slice(0, 4))
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 169, 87, 0.8),
-    rgba(18, 50, 86, 0.7)
-  );
-  z-index: 2;
 }
 
 .hero-content {
@@ -404,10 +389,16 @@ const featuredServices = computed<Service[]>(() => services.slice(0, 4))
   overflow: hidden;
   box-shadow: var(--shadow-xl);
   background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-  min-height: 400px;
+
+  height: fit-content;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.about-image img {
+  height: 100%;
 }
 
 /* CTA Section */

@@ -8,7 +8,6 @@
           alt="Equipe de engenheiros ambientais trabalhando em campo"
           class="hero-image"
         />
-        <div class="hero-overlay"></div>
       </div>
       <div class="container">
         <div class="hero-content">
@@ -285,25 +284,14 @@ const timeline: TimelineMilestone[] = [
   object-position: center;
 }
 
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 169, 87, 0.8),
-    rgba(18, 50, 86, 0.7)
-  );
-  z-index: 2;
-}
 
 .hero-content {
   position: relative;
   z-index: 3;
   text-align: center;
   color: var(--text-light);
+  padding: 1rem;
+  backdrop-filter: blur(10px);
 }
 
 .hero-title {

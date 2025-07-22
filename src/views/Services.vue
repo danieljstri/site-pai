@@ -165,6 +165,13 @@ import { services } from '@/data/services'
   margin: 0 auto;
   animation: fadeInUp 1s ease-out forwards;
   opacity: 0;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px);
 }
 
 .hero-title {
@@ -269,7 +276,7 @@ import { services } from '@/data/services'
 .process-step {
   background: white;
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
