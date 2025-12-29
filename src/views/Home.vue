@@ -21,7 +21,7 @@
             <router-link to="/contatos" class="btn btn-secondary">
               Entre em Contato
             </router-link>
-            <router-link to="/servicos" class="btn btn-outline">
+            <router-link to="/servicos" class="btn btn-secondary">
               Nossos Serviços
             </router-link>
           </div>
@@ -144,7 +144,7 @@
             <router-link to="/contatos" class="btn btn-secondary">
               Fale Conosco
             </router-link>
-            <router-link to="/acessibilidade" class="btn btn-outline">
+            <router-link to="/acessibilidade" class="btn btn-secondary">
               Laudo de Acessibilidade
             </router-link>
           </div>
@@ -301,7 +301,7 @@ const featuredServices = computed<Service[]>(() => services.slice(0, 4))
 /* Services Preview */
 .services-preview {
   padding: var(--spacing-20) 0;
-  background: white;
+  background: var(--gray-50);
 }
 
 .section-header {

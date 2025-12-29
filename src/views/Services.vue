@@ -49,7 +49,7 @@
               <router-link to="/contatos" class="btn btn-primary">
                 Solicitar Orçamento
               </router-link>
-              <router-link to="/sobre" class="btn btn-outline">
+              <router-link to="/sobre" class="btn btn-secondary">
                 Conheça Nossa Equipe
               </router-link>
             </div>
@@ -171,7 +171,7 @@ import { services } from '@/data/services'
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(30px);
 }
 
 .hero-title {

@@ -180,7 +180,7 @@
             <router-link to="/contatos" class="btn btn-secondary">
               Fale Conosco
             </router-link>
-            <router-link to="/servicos" class="btn btn-outline">
+            <router-link to="/servicos" class="btn btn-secondary">
               Nossos Serviços
             </router-link>
           </div>
@@ -438,6 +438,7 @@ const timeline: TimelineMilestone[] = [
 
 .overlay-content {
   color: var(--text-light);
+  padding: var(--spacing-16);
 }
 
 .overlay-content svg {

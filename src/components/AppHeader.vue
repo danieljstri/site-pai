@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header-container">
       <router-link to="/" class="header-logo">
-        <Leaf />
+        <img src="../public/logo-ecobrasil.jpg" alt="EcoBrasil Logo" class="logo-image" />
         EcoBrasil
       </router-link>
       
@@ -71,3 +71,11 @@ const closeMobileMenu = (): void => {
   mobileMenuOpen.value = false
 }
 </script>
+
+<style scoped>
+ .logo-image {
+   width: 40px;
+   height: auto;
+   margin-right: 0.5rem;
+ }
+ </style>
