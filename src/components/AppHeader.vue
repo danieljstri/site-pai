@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{ 'scrolled': isScrolled }">
+  <header class="header" :class="{ 'scrolled': isScrolled, 'menu-open': mobileMenuOpen }">
     <div class="header-container">
       <router-link to="/" class="header-logo">
         <img src="../public/logo-ecobrasil.jpg" alt="EcoBrasil Logo" class="logo-image" />
@@ -30,24 +30,26 @@
       </button>
 
       <!-- Mobile Menu -->
-      <transition name="fade">
-        <div v-if="mobileMenuOpen" class="mobile-menu-overlay" @click="closeMobileMenu">
-          <div class="mobile-menu" @click.stop>
-            <nav class="mobile-nav">
-              <router-link 
-                v-for="item in menuItems" 
-                :key="item.name"
-                :to="item.path"
-                @click="closeMobileMenu"
-                class="nav-link"
-                active-class="active"
-              >
-                {{ item.name }}
-              </router-link>
-            </nav>
+      <Teleport to="body">
+        <transition name="fade">
+          <div v-if="mobileMenuOpen" class="mobile-nav-overlay" @click="closeMobileMenu">
+            <div class="mobile-sidebar" @click.stop>
+              <nav class="mobile-links">
+                <router-link 
+                  v-for="item in menuItems" 
+                  :key="item.name" 
+                  :to="item.path"
+                  @click="closeMobileMenu"
+                  class="mobile-link"
+                  active-class="active"
+                >
+                  {{ item.name }}
+                </router-link>
+              </nav>
+            </div>
           </div>
-        </div>
-      </transition>
+        </transition>
+      </Teleport>
     </div>
   </header>
 </template>
@@ -142,9 +144,9 @@ onUnmounted(() => {
 
 .nav-link {
   text-decoration: none;
-  color: #cbd5e1; /* Melhor contraste */
+  color: #cbd5e1;
   font-size: 15px;
-  font-weight: 600; /* Mais peso para legibilidade */
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   transition: all 0.3s ease;
@@ -152,7 +154,7 @@ onUnmounted(() => {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: #d4b680; /* Bronze mais claro */
+  color: #d4b680;
 }
 
 .nav-link.active::after {
@@ -172,15 +174,57 @@ onUnmounted(() => {
   border: none;
   color: #ffffff;
   cursor: pointer;
+  z-index: 3000; /* Garante que o botão fique sobre o overlay */
 }
 
 @media (max-width: 768px) {
   .header-nav { display: none; }
   .mobile-menu-button { display: block; }
-  .mobile-menu-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 2000; }
-  .mobile-menu { position: fixed; top: 0; right: 0; width: 280px; height: 100%; background: #0a1a12; padding: 80px 40px; }
-  .mobile-nav { display: flex; flex-direction: column; gap: 30px; }
-  .mobile-nav .nav-link { font-size: 18px; }
+  
+  .mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+  }
+  
+  .mobile-sidebar {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    width: auto;
+    min-width: 240px;
+    height: auto;
+    background: #0a1a12;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    display: block; /* Garante visibilidade */
+    border-radius: 12px;
+    border: 1px solid rgba(212, 182, 128, 0.2);
+  }
+  
+  .mobile-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .mobile-link {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    transition: all 0.3s ease;
+  }
+  
+  .mobile-link.active {
+    color: #d4b680;
+  }
 }
 
 .fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }

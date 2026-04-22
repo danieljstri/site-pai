@@ -190,4 +190,14 @@ onUnmounted(() => observer?.disconnect())
 @media (max-width: 1024px) {
   .content-grid { grid-template-columns: 1fr; gap: 60px; }
 }
+
+@media (max-width: 768px) {
+  .section-lg { padding: 60px 0; }
+  .hero-title { font-size: clamp(2rem, 8vw, 2.5rem); }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .icon-wrap { margin-bottom: 20px; }
+  .icon-wrap svg { width: 32px; height: 32px; }
+  .stat-card, .process-card, .cta-banner { padding: 40px 20px; }
+  .section-title { font-size: 28px; }
+}
 </style>

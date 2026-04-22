@@ -200,7 +200,13 @@ onUnmounted(() => observer?.disconnect())
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
-  .mission-grid { grid-template-columns: 1fr; }
-  .stats-mini { flex-direction: column; gap: 20px; }
+  .section-lg { padding: 60px 0; }
+  .mission-grid { grid-template-columns: 1fr; gap: 40px; }
+  .mission-visual { order: -1; }
+  .stats-mini { flex-direction: column; gap: 20px; align-items: center; text-align: center; }
+  .hero-title { font-size: clamp(1.8rem, 8vw, 2.5rem); }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .timeline-modern { padding-left: 30px; }
+  .cta-banner { padding: 60px 20px; }
 }
 </style>

@@ -221,7 +221,11 @@ onUnmounted(() => observer?.disconnect())
 }
 
 @media (max-width: 768px) {
-  .form-wrapper { padding: 30px; }
+  .section-lg { padding: 60px 0; }
+  .hero-title { font-size: clamp(2rem, 8vw, 2.5rem); }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .form-wrapper { padding: 40px 20px; }
   .modern-form .form-row { grid-template-columns: 1fr; gap: 20px; }
+  .btn-submit { padding: 15px 20px; }
 }
 </style>

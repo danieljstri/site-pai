@@ -367,9 +367,14 @@ onUnmounted(() => {
 
 /* Responsive */
 @media (max-width: 768px) {
+  .section-lg { padding: 60px 0; }
   .hero-section { text-align: center; }
-  .apple-btn.secondary { margin-left: 0; margin-top: 15px; }
+  .hero-title, .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .hero-actions { flex-direction: column; gap: 15px; }
+  .apple-btn.secondary { margin-left: 0; }
   .stats-grid { grid-template-columns: 1fr; gap: 40px; }
-  .split-content { grid-template-columns: 1fr; }
+  .split-content { grid-template-columns: 1fr; gap: 40px; }
+  .split-image { order: -1; } /* Image on top for mobile */
+  .cta-card { padding: 60px 20px; }
 }
 </style>

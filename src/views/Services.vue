@@ -133,5 +133,13 @@ onUnmounted(() => observer?.disconnect())
 .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-@media (max-width: 768px) { .section-lg { padding: 80px 0; } .services-grid { grid-template-columns: 1fr; } .hero-title { font-size: 36px; } }
+@media (max-width: 768px) { 
+  .section-lg { padding: 60px 0; } 
+  .services-grid { grid-template-columns: 1fr; gap: 20px; } 
+  .hero-title { font-size: clamp(2rem, 8vw, 2.5rem); }
+  .hero-subtitle { margin-left: auto; margin-right: auto; }
+  .process-grid { grid-template-columns: 1fr; }
+  .cta-box { padding: 60px 20px; }
+  .section-title { font-size: 32px; }
+}
 </style>
