@@ -1,11 +1,13 @@
 <template>
-  <div class="service-card">
-    <component :is="iconComponent" class="service-icon" />
-    <h3 class="service-title">{{ service.title }}</h3>
+  <div class="service-card reveal">
+    <div class="card-header">
+      <component :is="iconComponent" class="service-icon" />
+      <h3 class="service-title">{{ service.title }}</h3>
+    </div>
     <p class="service-description">{{ service.description }}</p>
     <ul v-if="showDetails" class="service-details">
       <li v-for="detail in service.details" :key="detail">
-        <Check class="check-icon" />
+        <div class="bullet"></div>
         <span>{{ detail }}</span>
       </li>
     </ul>
@@ -14,7 +16,7 @@
 
 <script setup lang="ts">
 import { computed, type Component } from 'vue'
-import { Check, FileText, Eye, Settings, Shield, Accessibility } from 'lucide-vue-next'
+import { FileText, Eye, Settings, Shield, Accessibility } from 'lucide-vue-next'
 import type { Service, IconName } from '@/types'
 
 interface Props {
@@ -41,59 +43,87 @@ const iconComponent = computed<Component>(() => {
 
 <style scoped>
 .service-card {
-  background-color: white;
-  border: 2px solid var(--pigment-green);
-  border-radius: 1rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #0d2319;
+  border: 1px solid rgba(197, 163, 104, 0.1);
+  border-radius: 4px;
+  padding: 40px;
+  text-align: left;
+  transition: all 0.4s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  background-color: #122d21;
+  border-color: #c5a368;
+  transform: translateY(-8px);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
 }
 
 .service-icon {
-  color: var(--sgbus-green);
-  width: 3rem;
-  height: 3rem;
-  margin-bottom: 1rem;
+  color: #c5a368;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 .service-title {
-  color: var(--berkeley-blue);
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0;
 }
 
 .service-description {
-  color: var(--muted);
-  font-size: 1rem;
-  margin-bottom: 1rem;
+  color: #a8b0ab;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
 }
 
 .service-details {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-top: 1rem;
-  text-align: left;
+  border-top: 1px solid rgba(197, 163, 104, 0.1);
+  padding-top: 24px;
 }
 
 .service-details li {
   display: flex;
-  align-items: center;
-  margin-bottom: 0.5rem;
-  color: var(--text-dark);
+  align-items: flex-start;
+  margin-bottom: 12px;
+  color: #f0ede5;
+  font-size: 14px;
 }
 
-.check-icon {
-  color: var(--green-custom);
-  width: 1rem;
-  height: 1rem;
-  margin-right: 0.5rem;
+.bullet {
+  width: 6px;
+  height: 6px;
+  background: #c5a368;
+  border-radius: 50%;
+  margin-top: 7px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+/* Intersection Observer support (optional if parent handles it) */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>

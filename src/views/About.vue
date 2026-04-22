@@ -1,113 +1,62 @@
 <template>
-  <div>
+  <div class="page-dark">
     <!-- Hero Section -->
     <section class="about-hero">
-      <div class="hero-background">
-        <img 
-          src="https://th.bing.com/th/id/R.4a0bcc040d839558a4cb580481bcafb4?rik=xQuWft%2f40kvRbw&riu=http%3a%2f%2fwww.eas.ufma.br%2fwp-content%2fuploads%2f2020%2f11%2fcropped-educao-e-sociedade-ambiental-1024x614.jpg&ehk=sRfboHSWfEcu4iQM44RDZwfnnquRHH5y1nkWZY8L5NE%3d&risl=&pid=ImgRaw&r=0" 
-          alt="Equipe de engenheiros ambientais trabalhando em campo"
-          class="hero-image"
-        />
-      </div>
       <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title animate-fade-in-up">Sobre a EcoBrasil</h1>
-          <p class="hero-subtitle animate-fade-in-up">
-            Especialistas em consultoria ambiental com anos de experiência no mercado.
+        <div class="hero-content reveal">
+          <h1 class="hero-title">Nossa Compromisso com a <span class="accent">Excelência Ambiental</span></h1>
+          <p class="hero-subtitle">
+            Desde 2015, transformamos desafios ambientais em oportunidades de crescimento sustentável para nossos clientes.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Mission Section -->
-    <section class="mission-section">
+    <!-- Mission & Vision -->
+    <section class="mission-section section-lg">
       <div class="container">
-        <div class="mission-content">
-          <div class="mission-text">
-            <h2>Nossa Missão</h2>
+        <div class="mission-grid">
+          <div class="mission-text reveal">
+            <h2 class="section-title">Sobre a EcoBrasil</h2>
             <p>
-              Garantir que empresas de todos os portes mantenham-se em conformidade com as regulamentações ambientais, 
-              oferecendo soluções personalizadas e eficientes que protegem tanto o meio ambiente quanto os interesses comerciais.
+              Fundada em Aracaju, a EcoBrasil nasceu com o propósito de simplificar a complexidade do licenciamento ambiental e das normas técnicas. Somos uma consultoria que une rigor técnico à agilidade operacional.
             </p>
             <p>
-              Nossa equipe de especialistas trabalha com dedicação para simplificar processos complexos e manter 
-              sua empresa sempre em dia com todas as exigências legais.
+              Nossa missão é garantir que cada empresa atendida opere em total conformidade com a legislação, mitigando riscos e promovendo uma operação segura e ambientalmente responsável.
             </p>
-            <div class="mission-stats">
-              <div class="stat-item green">
-                <div class="stat-number">500+</div>
-                <div class="stat-label">Empresas Atendidas</div>
+            
+            <div class="stats-mini">
+              <div class="stat-box">
+                <span class="num">500+</span>
+                <span class="lab">Clientes Atendidos</span>
               </div>
-              <div class="stat-item blue">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Taxa de Aprovação</div>
-              </div>
-              <div class="stat-item green">
-                <div class="stat-number">8+</div>
-                <div class="stat-label">Anos de Experiência</div>
+              <div class="stat-box">
+                <span class="num">100%</span>
+                <span class="lab">Aprovação Técnica</span>
               </div>
             </div>
           </div>
-          <div class="mission-image">
-              <div class="overlay-content">
-                <Shield />
-                <h3>Compromisso com a Excelência</h3>
-                <p>Mais de 500 empresas atendidas com 100% de aprovação em licenciamentos.</p>
-              
-            </div>
+          <div class="mission-visual reveal">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80" alt="Consultoria Técnica" class="solid-img" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- History Timeline -->
+    <section class="timeline-section section-lg bg-soft">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Por que nos escolher?</h2>
-          <p class="section-subtitle">
-            Nossos diferenciais que garantem o sucesso dos seus projetos
-          </p>
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">Nossa Trajetória</h2>
+          <p class="section-subtitle">Um caminho pavimentado por ética e resultados sólidos.</p>
         </div>
         
-        <div class="features-grid">
-          <div 
-            v-for="feature in features" 
-            :key="feature.title"
-            :class="`feature-card ${feature.color}`"
-          >
-            <div class="feature-icon">
-              <component :is="feature.icon" />
-            </div>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="timeline-section">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Nossa História</h2>
-          <p class="section-subtitle">
-            Uma trajetória de crescimento e conquistas
-          </p>
-        </div>
-        
-        <div class="timeline">
-          <div 
-            v-for="milestone in timeline" 
-            :key="milestone.year"
-            class="timeline-item"
-          >
-            <div :class="`timeline-marker ${milestone.color}`">
-              {{ milestone.year }}
-            </div>
-            <div class="timeline-content">
-              <h4>{{ milestone.title }}</h4>
-              <p>{{ milestone.description }}</p>
+        <div class="timeline-modern">
+          <div v-for="item in timeline" :key="item.year" class="timeline-item reveal">
+            <div class="year">{{ item.year }}</div>
+            <div class="content">
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
             </div>
           </div>
         </div>
@@ -115,75 +64,34 @@
     </section>
 
     <!-- Team Section -->
-    <section class="team-section">
+    <section class="team-section section-lg">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Nossa Equipe</h2>
-          <p class="section-subtitle">
-            Profissionais qualificados e experientes
-          </p>
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">Liderança Técnica</h2>
+          <p class="section-subtitle">Profissionais altamente qualificados liderando cada projeto.</p>
         </div>
         
         <div class="team-grid">
-          <div class="team-card">
-            <div class="team-image">
+          <div class="team-card reveal" v-for="member in team" :key="member.name">
+            <div class="team-img-placeholder">
+              <Users :size="48" />
             </div>
             <div class="team-info">
-              <h3>João Silva</h3>
-              <p class="team-role">Diretor Técnico</p>
-              <p class="team-description">
-                Engenheiro Ambiental com 15 anos de experiência em licenciamento.
-              </p>
-            </div>
-          </div>
-          
-          <div class="team-card">
-            <div class="team-image">
-            </div>
-            <div class="team-info">
-              <h3>Maria Santos</h3>
-              <p class="team-role">Gerente de Projetos</p>
-              <p class="team-description">
-                Especialista em gestão ambiental e processos de conformidade.
-              </p>
-            </div>
-          </div>
-          
-          <div class="team-card">
-            <div class="team-image">
-            </div>
-            <div class="team-info">
-              <h3>Carlos Oliveira</h3>
-              <p class="team-role">Consultor Sênior</p>
-              <p class="team-description">
-                Biólogo especializado em estudos de impacto ambiental.
-              </p>
+              <h3>{{ member.name }}</h3>
+              <span class="role">{{ member.role }}</span>
+              <p>{{ member.desc }}</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="cta-background">
-        <div class="cta-overlay"></div>
-      </div>
+    <!-- CTA -->
+    <section class="final-cta section-lg">
       <div class="container">
-        <div class="cta-content">
-          <h2>Pronto para trabalhar conosco?</h2>
-          <p>
-            Entre em contato e descubra como podemos ajudar sua empresa 
-            a alcançar a conformidade ambiental.
-          </p>
-          <div class="cta-actions">
-            <router-link to="/contatos" class="btn btn-secondary">
-              Fale Conosco
-            </router-link>
-            <router-link to="/servicos" class="btn btn-secondary">
-              Nossos Serviços
-            </router-link>
-          </div>
+        <div class="cta-banner reveal">
+          <h2>Pronto para elevar o padrão da sua empresa?</h2>
+          <router-link to="/contatos" class="btn-bronze">Fale Conosco</router-link>
         </div>
       </div>
     </section>
@@ -191,749 +99,108 @@
 </template>
 
 <script setup lang="ts">
-import { type Component } from 'vue'
-import { Shield, Users, Award, Clock } from 'lucide-vue-next'
+import { onMounted, onUnmounted } from 'vue'
+import { Users } from 'lucide-vue-next'
 
-interface Feature {
-  title: string
-  description: string
-  icon: Component
-  color: string
-}
-
-interface TimelineMilestone {
-  year: string
-  title: string
-  description: string
-  color: string
-}
-
-const features: Feature[] = [
-  {
-    title: 'Equipe Especializada',
-    description: 'Profissionais qualificados e experientes em consultoria ambiental',
-    icon: Users,
-    color: 'blue'
-  },
-  {
-    title: 'Qualidade Garantida',
-    description: 'Processos certificados ISO 14001 e resultados comprovados',
-    icon: Award,
-    color: 'green'
-  },
-  {
-    title: 'Agilidade',
-    description: 'Prazos cumpridos e atendimento eficiente em todos os projetos',
-    icon: Clock,
-    color: 'blue'
-  }
+const timeline = [
+  { year: '2015', title: 'Fundação', description: 'Início das operações em Sergipe com foco em Licenciamento Ambiental.' },
+  { year: '2018', title: 'Expansão', description: 'Novas verticais de Segurança Contra Incêndio e Vistorias Técnicas.' },
+  { year: '2021', title: 'Consolidação', description: 'Marco de 300 empresas atendidas com 100% de aprovação técnica.' },
+  { year: '2024', title: 'Liderança', description: 'Referência regional em consultoria ambiental e acessibilidade.' }
 ]
 
-const timeline: TimelineMilestone[] = [
-  {
-    year: '2015',
-    title: 'Fundação da EcoBrasil',
-    description: 'Início das atividades com foco em licenciamento ambiental',
-    color: 'green'
-  },
-  {
-    year: '2018',
-    title: 'Expansão dos Serviços',
-    description: 'Inclusão de serviços de vistoria e controle de licenças',
-    color: 'blue'
-  },
-  {
-    year: '2021',
-    title: 'Certificação ISO',
-    description: 'Obtenção da certificação ISO 14001 para gestão ambiental',
-    color: 'green'
-  },
-  {
-    year: '2024',
-    title: 'Mais de 500 Clientes',
-    description: 'Marco de 500 empresas atendidas com sucesso',
-    color: 'blue'
-  }
+const team = [
+  { name: 'João Silva', role: 'Diretor Técnico', desc: 'Engenheiro Ambiental com 15 anos de experiência em licenciamento.' },
+  { name: 'Maria Santos', role: 'Gerente de Projetos', desc: 'Especialista em gestão ambiental e processos de conformidade.' },
+  { name: 'Carlos Oliveira', role: 'Consultor Sênior', desc: 'Biólogo especializado em estudos de impacto ambiental.' }
 ]
+
+// Intersection Observer Logic
+let observer: IntersectionObserver | null = null
+onMounted(() => {
+  const revealElements = document.querySelectorAll('.reveal')
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active')
+    })
+  }, { threshold: 0.1 })
+  revealElements.forEach(el => observer?.observe(el))
+})
+onUnmounted(() => observer?.disconnect())
 </script>
 
 <style scoped>
+.page-dark {
+  background-color: #0a1a12;
+  color: #f0ede5;
+}
+
+.section-lg { padding: 120px 0; }
+.bg-soft { background-color: #07140e; }
+
 .about-hero {
-  position: relative;
-  padding: var(--spacing-16) 0;
-  min-height: 60vh;
+  height: 50vh;
+  background-image: linear-gradient(to bottom, rgba(10, 26, 18, 0.9), rgba(10, 26, 18, 1)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  color: var(--text-light);
-  padding: 1rem;
-  backdrop-filter: blur(10px);
-}
-
-.hero-title {
-  font-size: var(--font-size-5xl);
-  font-weight: 800;
-  margin-bottom: var(--spacing-6);
-  color: var(--text-light);
-}
-
-.hero-subtitle {
-  font-size: var(--font-size-xl);
-  margin-bottom: 0;
-  opacity: 0.95;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.mission-section {
-  padding: var(--spacing-20) 0;
-  background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
-}
-
-.mission-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-12);
-  align-items: center;
-}
-
-.mission-text h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-6);
-}
-
-.mission-text p {
-  font-size: var(--font-size-lg);
-  color: var(--gray-600);
-  line-height: 1.7;
-  margin-bottom: var(--spacing-6);
-}
-
-.mission-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-6);
-  margin-top: var(--spacing-8);
-}
-
-.stat-item {
-  text-align: center;
-  padding: var(--spacing-6);
-  background: white;
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 2px solid transparent;
-  position: relative;
-}
-
-.stat-item::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
-}
-
-.stat-item.green::before {
-  background: linear-gradient(90deg, var(--primary-500), var(--primary-600));
-}
-
-.stat-item.blue::before {
-  background: linear-gradient(90deg, var(--secondary-500), var(--secondary-600));
-}
-
-.stat-item:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-}
-
-.stat-item.green:hover {
-  border-color: var(--primary-200);
-}
-
-.stat-item.blue:hover {
-  border-color: var(--secondary-200);
-}
-
-.stat-number {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  margin-bottom: var(--spacing-2);
-}
-
-.stat-item.green .stat-number {
-  color: var(--primary-600);
-}
-
-.stat-item.blue .stat-number {
-  color: var(--secondary-600);
-}
-
-.stat-label {
-  color: var(--gray-600);
-  font-weight: 500;
-}
-
-.mission-image {
-  position: relative;
-  border-radius: var(--border-radius-xl);
-  overflow: hidden;
-  box-shadow: var(--shadow-xl);
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-  min-height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mission-image img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.image-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, 
-    rgba(0, 169, 87, 0.9), 
-    rgba(18, 50, 86, 0.8)
-  );
-  color: white;
-  padding: var(--spacing-8);
   text-align: center;
 }
 
-.overlay-content {
-  color: var(--text-light);
-  padding: var(--spacing-16);
-}
+.hero-title { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 20px; }
+.hero-title .accent { color: #c5a368; }
+.hero-subtitle { color: #a8b0ab; font-size: 18px; max-width: 800px; margin: 0 auto; }
 
-.overlay-content svg {
-  width: 48px;
-  height: 48px;
-  margin-bottom: var(--spacing-4);
-  color: var(--text-light);
-}
+.mission-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+.section-title { font-size: 36px; font-weight: 700; margin-bottom: 30px; position: relative; color: #ffffff; }
 
-.overlay-content h3 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  margin-bottom: var(--spacing-2);
-  color: var(--text-light);
-}
+/* Adicional: garantir que todos os textos principais estejam em branco */
+.mission-text h2, 
+.section-header .section-title, 
+.team-info h3, 
+.cta-banner h2 { 
+  color: #ffffff; 
+}.section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #c5a368; margin-top: 15px; }
 
-.overlay-content p {
-  opacity: 0.95;
-  margin-bottom: 0;
-  color: var(--text-light);
-}
+.mission-text p { font-size: 18px; line-height: 1.7; color: #a8b0ab; margin-bottom: 24px; }
 
-.features-section {
-  padding: var(--spacing-20) 0;
-  background: white;
-}
+.stats-mini { display: flex; gap: 40px; margin-top: 40px; }
+.stat-box .num { display: block; font-size: 32px; font-weight: 800; color: #c5a368; }
+.stat-box .lab { font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; color: #55605a; }
 
-.section-header {
-  text-align: center;
-  margin-bottom: var(--spacing-16);
-}
+.solid-img { width: 100%; border-radius: 4px; box-shadow: 0 30px 60px rgba(0,0,0,0.3); }
 
-.section-title {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-4);
-}
+/* Timeline */
+.timeline-modern { max-width: 900px; margin: 0 auto; border-left: 1px solid rgba(197, 163, 104, 0.3); padding-left: 40px; }
+.timeline-item { position: relative; margin-bottom: 60px; }
+.timeline-item::before { content: ''; position: absolute; left: -45px; top: 10px; width: 10px; height: 10px; background: #c5a368; border-radius: 50%; }
 
-.section-subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--gray-600);
-  max-width: 600px;
-  margin: 0 auto;
-}
+.year { font-size: 24px; font-weight: 800; color: #c5a368; margin-bottom: 10px; }
+.content h3 { font-size: 20px; margin-bottom: 10px; color: #ffffff; }
+.content p { color: #a8b0ab; line-height: 1.6; }
 
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-8);
-}
+/* Team */
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.team-card { background: #0d2319; border-radius: 4px; overflow: hidden; transition: transform 0.3s ease; }
+.team-card:hover { transform: translateY(-10px); }
 
-.feature-card {
-  background: white;
-  padding: var(--spacing-8);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  border: 2px solid transparent;
-  text-align: center;
-}
+.team-img-placeholder { height: 200px; background: #122d21; display: flex; align-items: center; justify-content: center; color: #c5a368; }
+.team-info { padding: 30px; text-align: center; }
+.team-info h3 { margin-bottom: 5px; font-size: 20px; }
+.role { display: block; color: #c5a368; font-size: 14px; font-weight: 700; text-transform: uppercase; margin-bottom: 15px; }
+.team-info p { font-size: 14px; color: #a8b0ab; line-height: 1.5; }
 
-.feature-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-}
+/* CTA */
+.cta-banner { background: #c5a368; padding: 80px 40px; border-radius: 4px; text-align: center; color: #0a1a12; }
+.cta-banner h2 { font-size: 32px; font-weight: 800; margin-bottom: 40px; }
+.btn-bronze { background: #0a1a12; color: #ffffff; padding: 16px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; }
 
-.feature-card.green:hover {
-  border-color: var(--primary-200);
-}
-
-.feature-card.blue:hover {
-  border-color: var(--secondary-200);
-}
-
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto var(--spacing-6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-full);
-}
-
-.feature-card.green .feature-icon {
-  background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-  color: var(--primary-600);
-}
-
-.feature-card.blue .feature-icon {
-  background: linear-gradient(135deg, var(--secondary-100), var(--secondary-200));
-  color: var(--secondary-600);
-}
-
-.feature-card h3 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-4);
-}
-
-.feature-card p {
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.timeline-section {
-  padding: var(--spacing-20) 0;
-  background: linear-gradient(135deg, var(--gray-50), var(--primary-50));
-}
-
-.timeline {
-  max-width: 800px;
-  margin: 0 auto;
-  position: relative;
-}
-
-.timeline::before {
-  content: '';
-  position: absolute;
-  left: 24px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(to bottom, var(--primary-600), var(--secondary-600));
-}
-
-.timeline-item {
-  display: flex;
-  align-items: flex-start;
-  margin-bottom: var(--spacing-12);
-  position: relative;
-}
-
-.timeline-marker {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--border-radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-weight: 700;
-  font-size: var(--font-size-sm);
-  margin-right: var(--spacing-8);
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-  box-shadow: var(--shadow-md);
-}
-
-.timeline-marker.green {
-  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-}
-
-.timeline-marker.blue {
-  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
-}
-
-.timeline-content {
-  background: white;
-  padding: var(--spacing-6);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-sm);
-  flex: 1;
-  border: 2px solid transparent;
-  transition: all var(--transition-normal);
-}
-
-.timeline-content:hover {
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-100);
-  transform: translateY(-2px);
-}
-
-.timeline-content h4 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-2);
-}
-
-.timeline-content p {
-  color: var(--gray-600);
-  margin-bottom: 0;
-  line-height: 1.6;
-}
-
-.team-section {
-  padding: var(--spacing-20) 0;
-  background: white;
-}
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--spacing-8);
-}
-
-.team-card {
-  background: white;
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: all var(--transition-normal);
-  border: 2px solid transparent;
-}
-
-.team-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-8px);
-  border-color: var(--primary-100);
-}
-
-.team-image {
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.team-image img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
-
-.team-card:hover .team-image img {
-  transform: scale(1.05);
-}
-
-.team-info {
-  padding: var(--spacing-6);
-  text-align: center;
-}
-
-.team-info h3 {
-  font-size: var(--font-size-xl);
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-2);
-}
-
-.team-role {
-  color: var(--primary-600);
-  font-weight: 500;
-  margin-bottom: var(--spacing-3);
-  font-size: var(--font-size-sm);
-}
-
-.team-description {
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
-.cta-section {
-  position: relative;
-  padding: var(--spacing-20) 0;
-  overflow: hidden;
-}
-
-.cta-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-  z-index: 1;
-}
-
-.cta-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 2;
-}
-
-.cta-content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  color: var(--text-light);
-}
-
-.cta-content h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  margin-bottom: var(--spacing-4);
-  color: var(--text-light);
-}
-
-.cta-content p {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-8);
-  opacity: 0.95;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-actions {
-  display: flex;
-  gap: var(--spacing-4);
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.cta-actions .btn {
-  min-width: 160px;
-}
-
-/* Animações */
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Media Queries Responsivos */
-@media (max-width: 1024px) {
-  .mission-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-8);
-  }
-
-  .mission-text {
-    order: 2;
-  }
-
-  .mission-image {
-    order: 1;
-  }
-
-  .mission-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--spacing-4);
-  }
-
-  .features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-6);
-  }
-}
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 768px) {
-  .about-hero {
-    min-height: 50vh;
-    padding: var(--spacing-12) 0;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-4xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-lg);
-  }
-
-  .mission-section,
-  .features-section,
-  .timeline-section,
-  .team-section,
-  .cta-section {
-    padding: var(--spacing-16) 0;
-  }
-
-  .mission-stats {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-4);
-  }
-
-  .timeline::before {
-    display: none;
-  }
-
-  .timeline-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: var(--spacing-8);
-  }
-
-  .timeline-marker {
-    margin-right: 0;
-    margin-bottom: var(--spacing-4);
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-6);
-  }
-
-  .mission-text h2 {
-    font-size: var(--font-size-2xl);
-  }
-
-  .mission-text p {
-    font-size: var(--font-size-base);
-  }
-
-  .section-title {
-    font-size: var(--font-size-2xl);
-  }
-
-  .section-subtitle {
-    font-size: var(--font-size-base);
-  }
-
-  .cta-content h2 {
-    font-size: var(--font-size-2xl);
-  }
-
-  .cta-content p {
-    font-size: var(--font-size-base);
-  }
-
-  .cta-actions {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .cta-actions .btn {
-    width: 100%;
-    max-width: 280px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .stat-item {
-    padding: var(--spacing-4);
-  }
-
-  .stat-number {
-    font-size: var(--font-size-2xl);
-  }
-
-  .timeline-content {
-    padding: var(--spacing-4);
-  }
-
-  .team-info {
-    padding: var(--spacing-4);
-  }
-
-  .image-overlay {
-    padding: var(--spacing-6);
-  }
-
-  .overlay-content h3 {
-    font-size: var(--font-size-lg);
-  }
-
-  .feature-card {
-    padding: var(--spacing-6);
-  }
-
-  .feature-icon {
-    width: 56px;
-    height: 56px;
-  }
-
-  .about-hero {
-    padding: var(--spacing-8) 0;
-  }
-
-  .mission-section,
-  .features-section,
-  .timeline-section,
-  .team-section,
-  .cta-section {
-    padding: var(--spacing-12) 0;
-  }
+  .mission-grid { grid-template-columns: 1fr; }
+  .stats-mini { flex-direction: column; gap: 20px; }
 }
 </style>

@@ -1,30 +1,19 @@
 <template>
-  <div>
+  <div class="page-dark">
     <!-- Hero Section -->
     <section class="services-hero">
-      <div class="hero-background">
-        <div class="hero-overlay">
-          <img 
-            src="https://th.bing.com/th/id/R.4057339bff3abfd2b9fa5b0d5f81ddc9?rik=6gkk%2bJMtaPfv0w&pid=ImgRaw&r=0"
-            width="1200"
-            height="600" 
-            alt="Serviços Ambientais" 
-            class="hero-image"
-          />
-        </div>
-      </div>
       <div class="container">
-        <div class="hero-content">
-          <h1 class="hero-title animate-fade-in-up">Nossos Serviços</h1>
-          <p class="hero-subtitle animate-fade-in-up">
-            Oferecemos soluções completas em consultoria ambiental para garantir a conformidade da sua empresa.
+        <div class="hero-content reveal">
+          <h1 class="hero-title">Soluções Ambientais de <span class="accent">Alta Performance</span></h1>
+          <p class="hero-subtitle">
+            Consultoria técnica especializada para garantir a conformidade legal e a sustentabilidade do seu negócio.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Services Grid -->
-    <section class="services-content">
+    <section class="services-main section-lg">
       <div class="container">
         <div class="services-grid">
           <ServiceCard 
@@ -35,73 +24,48 @@
           />
         </div>
 
-        <!-- CTA Section -->
-        <div class="services-cta">
-          <div class="cta-card">
-            <div class="cta-icon">
-              <MessageCircle />
-            </div>
-            <h2>Precisa de um serviço personalizado?</h2>
-            <p>
-              Nossa equipe está pronta para desenvolver soluções específicas para sua empresa.
-            </p>
-            <div class="cta-actions">
-              <router-link to="/contatos" class="btn btn-primary">
-                Solicitar Orçamento
-              </router-link>
-              <router-link to="/sobre" class="btn btn-secondary">
-                Conheça Nossa Equipe
-              </router-link>
-            </div>
-          </div>
-        </div>
-
         <!-- Process Section -->
-        <div class="process-section">
+        <div class="process-section reveal">
           <div class="section-header">
-            <h2 class="section-title">Como Trabalhamos</h2>
+            <h2 class="section-title">Nossa Metodologia</h2>
             <p class="section-subtitle">
-              Nosso processo é estruturado para garantir eficiência e qualidade
+              Processos estruturados que garantem 100% de aprovação técnica.
             </p>
           </div>
 
           <div class="process-grid">
-            <div class="process-step green">
-              <div class="step-number">1</div>
-              <div class="step-icon">
-                <Search />
-              </div>
-              <h3>Análise Inicial</h3>
-              <p>Avaliamos suas necessidades e requisitos específicos</p>
+            <div class="process-step">
+              <div class="step-num">01</div>
+              <h3>Diagnóstico</h3>
+              <p>Análise detalhada da situação atual e requisitos específicos.</p>
             </div>
-
-            <div class="process-step blue">
-              <div class="step-number">2</div>
-              <div class="step-icon">
-                <FileText />
-              </div>
-              <h3>Documentação</h3>
-              <p>Preparamos toda a documentação necessária</p>
+            <div class="process-step">
+              <div class="step-num">02</div>
+              <h3>Estratégia</h3>
+              <p>Desenvolvimento do plano de ação e preparação documental.</p>
             </div>
-
-            <div class="process-step green">
-              <div class="step-number">3</div>
-              <div class="step-icon">
-                <CheckCircle />
-              </div>
-              <h3>Aprovação</h3>
-              <p>Acompanhamos o processo até a aprovação final</p>
+            <div class="process-step">
+              <div class="step-num">03</div>
+              <h3>Execução</h3>
+              <p>Acompanhamento rigoroso junto aos órgãos competentes.</p>
             </div>
-
-            <div class="process-step blue">
-              <div class="step-number">4</div>
-              <div class="step-icon">
-                <Shield />
-              </div>
-              <h3>Monitoramento</h3>
-              <p>Mantemos o controle contínuo da conformidade</p>
+            <div class="process-step">
+              <div class="step-num">04</div>
+              <h3>Conformidade</h3>
+              <p>Entrega de resultados e monitoramento contínuo.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="services-cta section-lg">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Pronto para regularizar sua empresa?</h2>
+          <p>Fale com nossos especialistas e obtenha um diagnóstico inicial sem compromisso.</p>
+          <router-link to="/contatos" class="btn-solid">Solicitar Consultoria</router-link>
         </div>
       </div>
     </section>
@@ -109,264 +73,65 @@
 </template>
 
 <script setup lang="ts">
-import { MessageCircle, Search, FileText, CheckCircle, Shield } from 'lucide-vue-next'
+import { onMounted, onUnmounted } from 'vue'
 import ServiceCard from '@/components/ServiceCard.vue'
 import { services } from '@/data/services'
+
+let observer: IntersectionObserver | null = null
+onMounted(() => {
+  const revealElements = document.querySelectorAll('.reveal')
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active')
+    })
+  }, { threshold: 0.1 })
+  revealElements.forEach(el => observer?.observe(el))
+})
+onUnmounted(() => observer?.disconnect())
 </script>
 
 <style scoped>
+.page-dark { background-color: #0a1a12; color: #ffffff; min-height: 100vh; }
+.section-lg { padding: 120px 0; }
+
 .services-hero {
-  position: relative;
-  width: 100%;
-  height: 600px;
-  overflow: hidden;
+  height: 60vh;
+  min-height: 500px;
+  /* Gradiente sólido escuro removido, mantendo apenas uma sobreposição de cor escura para contraste */
+  background-color: #05120b;
+  background-image: linear-gradient(rgba(10, 26, 18, 0.9), rgba(10, 26, 18, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  overflow: hidden;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-.container {
-  position: relative;
-  z-index: 2;
   text-align: center;
-  padding: 1rem;
 }
 
-.hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  animation: fadeInUp 1s ease-out forwards;
-  opacity: 0;
-  padding: 2rem;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(30px);
-}
+.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 24px; line-height: 1.1; }
+.hero-title .accent { color: #d4b680; }
+.hero-subtitle { font-size: 20px; color: #cbd5e1; max-width: 700px; margin: 0 auto; }
 
-.hero-title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 120px; }
 
-.hero-subtitle {
-  font-size: 1.5rem;
-}
+.section-header { text-align: center; margin-bottom: 80px; }
+.section-title { font-size: 42px; font-weight: 700; margin-bottom: 20px; }
+.section-subtitle { font-size: 18px; color: #cbd5e1; }
 
-.animate-fade-in-up {
-  animation: fadeInUp 1s ease-out forwards;
-}
+.process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px; }
+.process-step { background: #0d2319; padding: 40px; border-radius: 4px; border-bottom: 3px solid #d4b680; }
+.step-num { font-size: 14px; color: #d4b680; font-weight: 800; margin-bottom: 20px; letter-spacing: 0.2em; }
+.process-step h3 { font-size: 20px; margin-bottom: 16px; color: #ffffff; }
+.process-step p { font-size: 15px; color: #cbd5e1; line-height: 1.6; }
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+.cta-box { background: #d4b680; color: #000000; padding: 80px 40px; text-align: center; border-radius: 4px; }
+.cta-box h2 { font-size: 36px; font-weight: 800; margin-bottom: 20px; }
+.cta-box p { font-size: 18px; margin-bottom: 40px; color: #000000; font-weight: 500; }
 
-.services-content {
-  padding: 6rem 0;
-  background: shite;
-}
+.btn-solid { display: inline-block; background: #000000; color: #ffffff; padding: 16px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; transition: all 0.3s ease; }
+.btn-solid:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-.cta-card {
-  background: white;
-  padding: 3rem;
-  border-radius: 1rem;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border: 2px solid var(--pigment-green-100);
-  position: relative;
-  overflow: hidden;
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-.cta-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--pigment-green-600), var(--berkeley-blue-600));
-}
-
-.cta-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 1.5rem;
-  background: linear-gradient(135deg, var(--pigment-green-100), var(--berkeley-blue-100));
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--pigment-green-600);
-}
-
-.cta-card h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--berkeley-blue-600);
-  margin-bottom: 1rem;
-}
-
-.cta-card p {
-  font-size: 1.125rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-.cta-actions {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.section-title {
-  color:  var(--berkeley-blue-500);
-}
-
-.section-subtitle {
-  color: var(--berkeley-blue-500)
-}
-.process-section {
-  margin-top: 6rem;
-}
-
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.process-step {
-  background: white;
-  padding: 2rem;
-  border-radius: 0.5rem;
-  text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  position: relative;
-  border: 2px solid transparent;
-}
-
-.process-step::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  border-radius: 1rem 1rem 0 0;
-}
-
-.process-step.green::before {
-  background: linear-gradient(90deg, var(--pigment-green-500), var(--pigment-green-600));
-}
-
-.process-step.blue::before {
-  background: linear-gradient(90deg, var(--berkeley-blue-500), var(--berkeley-blue-600));
-}
-
-.process-step.green:hover {
-  border-color: var(--pigment-green-200);
-}
-
-.process-step.blue:hover {
-  border-color: var(--berkeley-blue-200);
-}
-
-.step-number {
-  position: absolute;
-  top: -15px;
-  right: 1rem;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 700;
-  font-size: 0.875rem;
-  color: white;
-}
-
-.process-step.green .step-number {
-  background: var(--pigment-green-600);
-}
-
-.process-step.blue .step-number {
-  background: var(--berkeley-blue-600);
-}
-
-.step-icon {
-  width: 64px;
-  height: 64px;
-  margin: 0 auto 1rem;
-  border-radius: 9999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-}
-
-.process-step.green .step-icon {
-  background: linear-gradient(135deg, var(--pigment-green-100), var(--pigment-green-200));
-  color: var(--pigment-green-600);
-}
-
-.process-step.blue .step-icon {
-  background: linear-gradient(135deg, var(--berkeley-blue-100), var(--berkeley-blue-200));
-  color: var(--berkeley-blue-600);
-}
-
-.process-step:hover .step-icon {
-  transform: scale(1.1);
-}
-
-.process-step h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--berkeley-blue-700);
-}
-
-.process-step p {
-  color: #666;
-  line-height: 1.6;
-}
+@media (max-width: 768px) { .section-lg { padding: 80px 0; } .services-grid { grid-template-columns: 1fr; } .hero-title { font-size: 36px; } }
 </style>

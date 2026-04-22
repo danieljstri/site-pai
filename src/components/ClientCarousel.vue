@@ -114,25 +114,25 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .carousel-section {
-  padding: var(--spacing-20) 0;
-  background: linear-gradient(135deg, var(--gray-50), var(--primary-50));
+  padding: 60px 0;
+  background: transparent;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: var(--spacing-16);
+  margin-bottom: 40px;
 }
 
 .section-title {
-  font-size: var(--font-size-3xl);
+  font-size: 32px;
   font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-4);
+  color: #ffffff;
+  margin-bottom: 16px;
 }
 
 .section-subtitle {
-  font-size: var(--font-size-lg);
-  color: var(--gray-600);
+  font-size: 18px;
+  color: #a8b0ab;
   max-width: 600px;
   margin: 0 auto;
 }
@@ -140,14 +140,12 @@ onBeforeUnmount(() => {
 .carousel {
   position: relative;
   overflow: hidden;
-  border-radius: var(--border-radius-xl);
-  background: white;
-  box-shadow: var(--shadow-lg);
+  background: transparent;
 }
 
 .carousel-track {
   display: flex;
-  transition: transform var(--transition-normal);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-slide {
@@ -159,170 +157,111 @@ onBeforeUnmount(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-8);
-  min-height: 300px;
+  padding: 20px;
+  min-height: 350px; /* Aumentado para dar mais destaque */
   width: 100%;
 }
 
 .client-logo {
   width: 100%;
-  max-width: 600px;
-  height: 250px;
-  background: white;
-  border-radius: var(--border-radius-xl);
+  max-width: 800px; /* Aumentado significativamente */
+  height: 300px; /* Aumentado para ocupar mais o bloco */
+  background: rgba(255, 255, 255, 0.95); /* Fundo quase branco para destacar logos originais */
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--spacing-8);
-  box-shadow: var(--shadow-lg);
-  transition: all var(--transition-normal);
-  border: 2px solid var(--gray-100);
-  overflow: hidden;
+  padding: 40px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
 
 .client-logo:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--primary-200);
+  transform: scale(1.02);
+  border-color: #c5a368;
 }
 
 .logo-image {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.7;
-  transition: all var(--transition-normal);
+  opacity: 1; /* Sempre visível */
+  filter: none; /* Cores originais sempre */
+  transition: transform 0.3s ease;
 }
 
 .client-logo:hover .logo-image {
-  filter: grayscale(0%);
-  opacity: 1;
+  transform: scale(1.05);
 }
 
 .carousel-controls {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: white;
-  border: 2px solid var(--gray-200);
-  border-radius: var(--border-radius-full);
-  width: 48px;
-  height: 48px;
+  background: rgba(197, 163, 104, 0.9); /* Usando a cor bronze do tema */
+  border: none;
+  border-radius: 4px;
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--transition-normal);
-  color: var(--gray-600);
-  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  color: #0a1a12;
   z-index: 10;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .carousel-controls:hover {
-  background: var(--primary-600);
-  color: white;
-  border-color: var(--primary-600);
-  transform: translateY(-50%) scale(1.1);
+  background: #ffffff;
+  color: #0a1a12;
 }
 
 .carousel-prev {
-  left: var(--spacing-4);
+  left: 10px;
 }
 
 .carousel-next {
-  right: var(--spacing-4);
+  right: 10px;
 }
 
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-2);
-  padding: var(--spacing-6);
-  background: var(--gray-50);
+  gap: 12px;
+  padding: 20px 0;
 }
 
 .carousel-indicator {
-  width: 12px;
-  height: 12px;
-  border-radius: var(--border-radius-full);
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
   border: none;
-  background: var(--gray-300);
+  background: rgba(255, 255, 255, 0.2);
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: all 0.3s ease;
 }
 
 .carousel-indicator.active {
-  background: var(--primary-600);
-  transform: scale(1.2);
+  background: #c5a368;
+  width: 30px;
 }
 
-.carousel-indicator:hover {
-  background: var(--primary-400);
-}
-
-/* Responsividade */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .carousel-content {
-    padding: var(--spacing-6);
     min-height: 250px;
   }
   
   .client-logo {
-    max-width: 500px;
     height: 200px;
-    padding: var(--spacing-6);
-  }
-}
-
-@media (max-width: 768px) {
-  .carousel-section {
-    padding: var(--spacing-16) 0;
-  }
-
-  .carousel-content {
-    padding: var(--spacing-4);
-    min-height: 200px;
+    padding: 20px;
   }
   
-  .client-logo {
-    max-width: 400px;
-    height: 160px;
-    padding: var(--spacing-4);
-  }
-
-  .section-title {
-    font-size: var(--font-size-2xl);
-  }
-
-  .section-subtitle {
-    font-size: var(--font-size-base);
-  }
-
   .carousel-controls {
     width: 40px;
     height: 40px;
-  }
-
-  .carousel-prev {
-    left: var(--spacing-2);
-  }
-
-  .carousel-next {
-    right: var(--spacing-2);
-  }
-}
-
-@media (max-width: 480px) {
-  .carousel-content {
-    padding: var(--spacing-3);
-    min-height: 150px;
-  }
-
-  .client-logo {
-    max-width: 100%;
-    height: 120px;
-    padding: var(--spacing-3);
   }
 }
 </style>

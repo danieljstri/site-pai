@@ -1,9 +1,9 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{ 'scrolled': isScrolled }">
     <div class="header-container">
       <router-link to="/" class="header-logo">
         <img src="../public/logo-ecobrasil.jpg" alt="EcoBrasil Logo" class="logo-image" />
-        EcoBrasil
+        <span class="logo-text">EcoBrasil</span>
       </router-link>
       
       <!-- Desktop Navigation -->
@@ -30,30 +30,35 @@
       </button>
 
       <!-- Mobile Menu -->
-      <div class="mobile-menu" :class="{ open: mobileMenuOpen }">
-        <nav class="mobile-nav">
-          <router-link 
-            v-for="item in menuItems" 
-            :key="item.name"
-            :to="item.path"
-            @click="closeMobileMenu"
-            class="nav-link"
-            active-class="active"
-          >
-            {{ item.name }}
-          </router-link>
-        </nav>
-      </div>
+      <transition name="fade">
+        <div v-if="mobileMenuOpen" class="mobile-menu-overlay" @click="closeMobileMenu">
+          <div class="mobile-menu" @click.stop>
+            <nav class="mobile-nav">
+              <router-link 
+                v-for="item in menuItems" 
+                :key="item.name"
+                :to="item.path"
+                @click="closeMobileMenu"
+                class="nav-link"
+                active-class="active"
+              >
+                {{ item.name }}
+              </router-link>
+            </nav>
+          </div>
+        </div>
+      </transition>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-import { Leaf, Menu, X } from 'lucide-vue-next'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { Menu, X } from 'lucide-vue-next'
 import type { MenuItem } from '@/types'
 
 const mobileMenuOpen = ref<boolean>(false)
+const isScrolled = ref<boolean>(false)
 
 const menuItems: MenuItem[] = [
   { name: 'Início', path: '/' },
@@ -70,12 +75,114 @@ const toggleMobileMenu = (): void => {
 const closeMobileMenu = (): void => {
   mobileMenuOpen.value = false
 }
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY > 20
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
- .logo-image {
-   width: 40px;
-   height: auto;
-   margin-right: 0.5rem;
- }
- </style>
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  padding: 20px 0;
+  background: transparent;
+}
+
+.header.scrolled {
+  background: rgba(7, 20, 14, 0.98);
+  backdrop-filter: blur(12px);
+  padding: 15px 0;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+  border-bottom: 1px solid rgba(212, 182, 128, 0.3);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.logo-image {
+  width: 35px;
+  height: 35px;
+  margin-right: 12px;
+  border-radius: 4px;
+}
+
+.header-nav {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #cbd5e1; /* Melhor contraste */
+  font-size: 15px;
+  font-weight: 600; /* Mais peso para legibilidade */
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #d4b680; /* Bronze mais claro */
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background: #d4b680;
+}
+
+.mobile-menu-button {
+  display: none;
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .header-nav { display: none; }
+  .mobile-menu-button { display: block; }
+  .mobile-menu-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.85); z-index: 2000; }
+  .mobile-menu { position: fixed; top: 0; right: 0; width: 280px; height: 100%; background: #0a1a12; padding: 80px 40px; }
+  .mobile-nav { display: flex; flex-direction: column; gap: 30px; }
+  .mobile-nav .nav-link { font-size: 18px; }
+}
+
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+</style>

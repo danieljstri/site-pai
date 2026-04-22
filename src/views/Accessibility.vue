@@ -1,142 +1,89 @@
 <template>
-  <div>
+  <div class="page-dark">
     <!-- Hero Section -->
     <section class="accessibility-hero">
-      <div class="hero-background">
-        <img 
-          src="https://img.freepik.com/fotos-gratis/pessoa-com-deficiencia-viajando-na-cidade_23-2149494533.jpg?semt=ais_hybrid&w=740" 
-          alt="Rampa de acessibilidade em edifício moderno"
-          class="hero-image"
-        />
-      </div>
       <div class="container">
-        <div class="hero-content">
-          <div class="hero-icon">
-            <Accessibility />
-          </div>
-          <h1 class="hero-title animate-fade-in-up">Laudo de Acessibilidade</h1>
-          <p class="hero-subtitle animate-fade-in-up">
-            Garantimos que seu estabelecimento esteja em conformidade com as normas de acessibilidade e inclusão.
+        <div class="hero-content reveal">
+          <div class="icon-wrap"><Accessibility :size="48" /></div>
+          <h1 class="hero-title">Laudo de <span class="accent">Acessibilidade</span></h1>
+          <p class="hero-subtitle">
+            Conformidade com a NBR 9050 e Lei Brasileira de Inclusão para estabelecimentos comerciais e públicos.
           </p>
         </div>
       </div>
     </section>
 
-    <!-- Importance Section -->
-    <section class="importance-section">
+    <!-- Detailed Info -->
+    <section class="access-details section-lg">
       <div class="container">
-        <div class="importance-card">
-          <div class="importance-header">
-            <Shield class="importance-icon" />
-            <h2>Por que é importante?</h2>
-          </div>
-          <p>
-            O laudo de acessibilidade é obrigatório para diversos tipos de estabelecimentos e garante que pessoas 
-            com deficiência ou mobilidade reduzida tenham acesso adequado às instalações, promovendo inclusão e igualdade.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Analysis Section -->
-    <section class="analysis-section">
-      <div class="container">
-        <div class="analysis-content">
-          <div class="analysis-text">
-            <h3 class="section-title">O que analisamos:</h3>
-            <div class="analysis-grid">
-              <div 
-                v-for="analysis in analysisItems" 
-                :key="analysis.title"
-                class="analysis-item"
-              >
-                <Check class="analysis-check" />
+        <div class="content-grid">
+          <div class="text-side reveal">
+            <h2 class="section-title">Inclusão e Conformidade Legal</h2>
+            <p>
+              O Laudo de Acessibilidade é um documento técnico indispensável para a obtenção de alvarás de funcionamento e renovação de licenças. Ele atesta que o imóvel garante autonomia e segurança para pessoas com deficiência ou mobilidade reduzida.
+            </p>
+            <div class="feature-list">
+              <div class="feature-item" v-for="item in analysisItems" :key="item.title">
+                <Check class="check" :size="20" />
                 <div>
-                  <h4>{{ analysis.title }}</h4>
-                  <p>{{ analysis.description }}</p>
+                  <h4>{{ item.title }}</h4>
+                  <p>{{ item.description }}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="process-card">
-            <h3 class="section-title">Nosso Processo:</h3>
-            <div class="process-steps">
-              <div 
-                v-for="(step, index) in processSteps" 
-                :key="step.title"
-                class="process-step"
-              >
-                <div :class="`process-number ${step.color}`">
-                  {{ index + 1 }}
-                </div>
-                <div class="process-content">
-                  <h4>{{ step.title }}</h4>
-                  <p>{{ step.description }}</p>
-                </div>
-              </div>
+          <div class="sidebar-side">
+            <div class="stat-card reveal">
+              <Shield class="icon" :size="32" />
+              <h3>Obrigatoriedade</h3>
+              <p>Essencial para shoppings, escolas, hospitais, hotéis e edifícios comerciais conforme o Decreto Federal 5.296/04.</p>
             </div>
 
-            <div class="process-tip">
-              <p>
-                💡 <strong>Dica:</strong> O laudo deve ser renovado periodicamente conforme a legislação local.
-              </p>
+            <div class="process-card reveal">
+              <h3>Nosso Fluxo</h3>
+              <div class="steps">
+                <div class="step" v-for="(step, i) in processSteps" :key="i">
+                  <span class="step-idx">{{ i + 1 }}</span>
+                  <div class="step-txt">
+                    <h4>{{ step.title }}</h4>
+                    <p>{{ step.description }}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Norms Section -->
-    <section class="norms-section">
+    <!-- Standards Section -->
+    <section class="standards-section section-lg bg-soft">
       <div class="container">
-        <div class="norms-card">
-          <h3 class="section-title">Normas e Legislação</h3>
-          <div class="norms-content">
-            <div class="norms-column">
-              <h4>Principais Normas:</h4>
-              <ul class="norms-list">
-                <li 
-                  v-for="norm in norms" 
-                  :key="norm.code"
-                >
-                  <FileText />
-                  <span>{{ norm.code }} - {{ norm.description }}</span>
-                </li>
-              </ul>
-            </div>
-            <div class="establishments-column">
-              <h4>Estabelecimentos Obrigatórios:</h4>
-              <ul class="establishments-list">
-                <li 
-                  v-for="establishment in establishments" 
-                  :key="establishment"
-                >
-                  <Building />
-                  <span>{{ establishment }}</span>
-                </li>
-              </ul>
+        <div class="section-header text-center reveal">
+          <h2 class="section-title">Normas Aplicadas</h2>
+          <p class="section-subtitle">Trabalhamos rigorosamente dentro das normas brasileiras vigentes.</p>
+        </div>
+        
+        <div class="standards-grid reveal">
+          <div class="standard-item" v-for="norm in norms" :key="norm.code">
+            <FileText class="icon" :size="24" />
+            <div>
+              <strong>{{ norm.code }}</strong>
+              <p>{{ norm.description }}</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-      <div class="cta-background">
-        <div class="cta-overlay"></div>
-      </div>
+    <!-- CTA -->
+    <section class="final-cta section-lg">
       <div class="container">
-        <div class="cta-content">
-          <h2>Precisa de um Laudo de Acessibilidade?</h2>
-          <p>
-            Nossa equipe especializada está pronta para ajudar sua empresa a garantir 
-            a conformidade com todas as normas de acessibilidade.
-          </p>
-          <router-link to="/contatos" class="btn btn-secondary">
-            Solicite seu Laudo de Acessibilidade
-          </router-link>
+        <div class="cta-banner reveal">
+          <h2>Sua empresa está acessível?</h2>
+          <p>Evite multas e promova a inclusão. Solicite uma vistoria técnica agora.</p>
+          <router-link to="/contatos" class="btn-solid">Agendar Vistoria</router-link>
         </div>
       </div>
     </section>
@@ -144,612 +91,103 @@
 </template>
 
 <script setup lang="ts">
-import { Accessibility, Check, FileText, Building, Shield } from 'lucide-vue-next'
+import { onMounted, onUnmounted } from 'vue'
+import { Accessibility, Check, Shield, FileText } from 'lucide-vue-next'
 
-interface AnalysisItem {
-  title: string
-  description: string
-}
-
-interface ProcessStep {
-  title: string
-  description: string
-  color: string
-}
-
-interface Norm {
-  code: string
-  description: string
-}
-
-const analysisItems: AnalysisItem[] = [
-  {
-    title: 'Acessos e Circulação',
-    description: 'Rampas, corredores, portas e passagens'
-  },
-  {
-    title: 'Sanitários Adaptados',
-    description: 'Banheiros com equipamentos adequados'
-  },
-  {
-    title: 'Sinalização',
-    description: 'Placas em braile e sinalização visual'
-  },
-  {
-    title: 'Estacionamento',
-    description: 'Vagas reservadas e adequadas'
-  },
-  {
-    title: 'Elevadores e Plataformas',
-    description: 'Equipamentos de acesso vertical'
-  },
-  {
-    title: 'Mobiliário Adaptado',
-    description: 'Balcões, mesas e equipamentos acessíveis'
-  }
+const analysisItems = [
+  { title: 'Rota Acessível', description: 'Rampas, calçadas e circulações internas conforme NBR 9050.' },
+  { title: 'Sanitários', description: 'Dimensionamento e instalação de barras de apoio.' },
+  { title: 'Sinalização', description: 'Sinalização tátil (piso e placas) e visual.' },
+  { title: 'Mobiliário', description: 'Balcões de atendimento e mesas adequadas.' }
 ]
 
-const processSteps: ProcessStep[] = [
-  {
-    title: 'Vistoria Técnica',
-    description: 'Análise completa das instalações por profissional qualificado',
-    color: 'green'
-  },
-  {
-    title: 'Relatório Detalhado',
-    description: 'Documentação de conformidades e não-conformidades encontradas',
-    color: 'blue'
-  },
-  {
-    title: 'Emissão do Laudo',
-    description: 'Documento oficial com validade legal e recomendações',
-    color: 'green'
-  }
+const processSteps = [
+  { title: 'Vistoria Local', description: 'Coleta de medidas e registro fotográfico.' },
+  { title: 'Análise Normativa', description: 'Comparação com os requisitos legais.' },
+  { title: 'Emissão do Laudo', description: 'Documento técnico com recomendações.' }
 ]
 
-const norms: Norm[] = [
-  { code: 'NBR 9050/2020', description: 'Acessibilidade a edificações' },
-  { code: 'Lei 13.146/2015', description: 'Lei Brasileira de Inclusão' },
-  { code: 'Decreto 5.296/2004', description: 'Regulamentação de acessibilidade' },
-  { code: 'NBR 16537/2016', description: 'Sinalização tátil no piso' }
+const norms = [
+  { code: 'NBR 9050:2020', description: 'Acessibilidade a edificações, mobiliário e equipamentos.' },
+  { code: 'Lei 13.146/2015', description: 'Estatuto da Pessoa com Deficiência (LBI).' },
+  { code: 'NBR 16537:2016', description: 'Sinalização tátil no piso - Diretrizes.' }
 ]
 
-const establishments: string[] = [
-  'Edifícios comerciais e de serviços',
-  'Estabelecimentos de saúde',
-  'Instituições de ensino',
-  'Centros de compras',
-  'Edifícios residenciais multifamiliares',
-  'Espaços culturais e de lazer'
-]
+let observer: IntersectionObserver | null = null
+onMounted(() => {
+  const revealElements = document.querySelectorAll('.reveal')
+  observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('active')
+    })
+  }, { threshold: 0.1 })
+  revealElements.forEach(el => observer?.observe(el))
+})
+onUnmounted(() => observer?.disconnect())
 </script>
 
 <style scoped>
-/* Hero Section */
+.page-dark { background-color: #0a1a12; color: #f0ede5; min-height: 100vh; }
+.section-lg { padding: 120px 0; }
+.bg-soft { background-color: #07140e; }
+
 .accessibility-hero {
-  position: relative;
-  padding: var(--spacing-20) 0;
-  min-height: 60vh;
+  height: 50vh;
+  min-height: 400px;
+  background: linear-gradient(rgba(10, 26, 18, 0.85), rgba(10, 26, 18, 1)), url('https://images.unsplash.com/photo-1519491050282-cf00c82424b4?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
   display: flex;
   align-items: center;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-}
-
-.hero-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 1;
-}
-
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-
-.hero-content {
-  position: relative;
-  z-index: 3;
   text-align: center;
-  color: var(--text-light);
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-  backdrop-filter: blur(10px);
 }
 
-.hero-icon {
-  width: 80px;
-  height: 80px;
-  margin: 0 auto var(--spacing-6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: var(--border-radius-full);
-  backdrop-filter: blur(10px);
-}
+.icon-wrap { color: #c5a368; margin-bottom: 30px; }
+.hero-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; margin-bottom: 20px; color: #ffffff; }
+.accent { color: #c5a368; }
+.hero-subtitle { color: #ffffff; font-size: 20px; max-width: 800px; margin: 0 auto; line-height: 1.5; }
 
-.hero-icon svg {
-  width: 48px;
-  height: 48px;
-  color: var(--text-light);
-}
+.content-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 100px; }
 
-.hero-title {
-  font-size: var(--font-size-5xl);
-  font-weight: 800;
-  margin-bottom: var(--spacing-6);
-  color: var(--text-light);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
+.section-title { font-size: 36px; font-weight: 700; margin-bottom: 30px; position: relative; color: #ffffff !important; }
+.section-title::after { content: ''; display: block; width: 50px; height: 3px; background: #c5a368; margin-top: 15px; }
 
-.hero-subtitle {
-  font-size: var(--font-size-xl);
-  margin-bottom: 0;
-  opacity: 0.95;
-  line-height: 1.6;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-}
+.feature-list { display: grid; gap: 30px; margin-top: 50px; }
+.feature-item { display: flex; gap: 20px; }
+.feature-item .check { color: #c5a368; margin-top: 3px; }
+.feature-item h4 { font-size: 18px; margin-bottom: 5px; color: #ffffff; }
+.feature-item p { color: #cbd5e1; font-size: 15px; line-height: 1.6; }
 
-/* Importance Section */
-.importance-section {
-  padding: var(--spacing-20) 0;
-  background: linear-gradient(135deg, var(--primary-50), var(--secondary-50));
-}
+.sidebar-side { display: flex; flex-direction: column; gap: 30px; }
 
-.importance-card {
-  background: white;
-  padding: var(--spacing-10);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-lg);
-  border: 2px solid transparent;
-  transition: all var(--transition-normal);
-}
+.stat-card { background: #c5a368; color: #0a1a12; padding: 40px; border-radius: 4px; }
+.stat-card .icon { margin-bottom: 20px; }
+.stat-card h3 { font-size: 20px; margin-bottom: 15px; font-weight: 800; }
+.stat-card p { font-size: 16px; line-height: 1.6; opacity: 0.9; }
 
-.importance-card:hover {
-  border-color: var(--primary-200);
-  transform: translateY(-4px);
-}
+.process-card { background: #0d2319; padding: 40px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.05); }
+.process-card h3 { margin-bottom: 30px; color: #ffffff; }
 
-.importance-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: var(--spacing-6);
-}
+.steps { display: flex; flex-direction: column; gap: 25px; }
+.step { display: flex; gap: 20px; }
+.step-idx { width: 24px; height: 24px; background: #c5a368; color: #0a1a12; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 12px; font-weight: 800; flex-shrink: 0; margin-top: 3px; }
+.step-txt h4 { font-size: 16px; margin-bottom: 5px; color: #ffffff; }
+.step-txt p { font-size: 14px; color: #cbd5e1; }
 
-.importance-icon {
-  width: 64px;
-  height: 64px;
-  color: var(--primary-600);
-  margin-right: var(--spacing-4);
-  padding: var(--spacing-3);
-  background: linear-gradient(135deg, var(--primary-100), var(--primary-200));
-  border-radius: var(--border-radius-lg);
-}
+.standards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.standard-item { display: flex; gap: 20px; background: #0d2319; padding: 30px; border-radius: 4px; align-items: center; }
+.standard-item .icon { color: #c5a368; }
+.standard-item p { margin: 0; color: #cbd5e1; font-size: 14px; margin-top: 5px; }
+.standard-item strong { color: #ffffff; }
 
-.importance-header h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  color: var(--gray-800);
-  margin: 0;
-}
+.cta-banner { background: #c5a368; padding: 80px 40px; border-radius: 4px; text-align: center; color: #0a1a12; }
+.cta-banner h2 { font-size: 32px; font-weight: 800; margin-bottom: 15px; color: #0a1a12; }
+.cta-banner p { margin-bottom: 40px; color: #0a1a12; }
+.btn-solid { background: #0a1a12; color: #ffffff; padding: 16px 40px; text-decoration: none; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; display: inline-block; }
 
-.importance-card p {
-  font-size: var(--font-size-lg);
-  color: var(--gray-600);
-  line-height: 1.7;
-  margin: 0;
-}
+.reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-/* Analysis Section */
-.analysis-section {
-  padding: var(--spacing-20) 0;
-  background: white;
-}
-
-.analysis-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-12);
-  align-items: start;
-}
-
-.section-title {
-  font-size: var(--font-size-2xl);
-  font-weight: 700;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-8);
-}
-
-.analysis-grid {
-  display: grid;
-  gap: var(--spacing-6);
-}
-
-.analysis-item {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-3);
-}
-
-.analysis-check {
-  width: 24px;
-  height: 24px;
-  color: var(--primary-600);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.analysis-item h4 {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-2);
-}
-
-.analysis-item p {
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.process-card {
-  background: linear-gradient(135deg, var(--gray-50), var(--primary-50));
-  padding: var(--spacing-8);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-sm);
-}
-
-.process-steps {
-  display: grid;
-  gap: var(--spacing-6);
-  margin-bottom: var(--spacing-8);
-}
-
-.process-step {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--spacing-4);
-}
-
-.process-number {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--border-radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-light);
-  font-weight: 700;
-  font-size: var(--font-size-lg);
-  flex-shrink: 0;
-  box-shadow: var(--shadow-md);
-}
-
-.process-number.green {
-  background: linear-gradient(135deg, var(--primary-500), var(--primary-600));
-}
-
-.process-number.blue {
-  background: linear-gradient(135deg, var(--secondary-500), var(--secondary-600));
-}
-
-.process-content h4 {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-2);
-}
-
-.process-content p {
-  color: var(--gray-600);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.process-tip {
-  padding: var(--spacing-4);
-  background: linear-gradient(135deg, var(--secondary-100), var(--secondary-200));
-  border-radius: var(--border-radius-lg);
-  border-left: 4px solid var(--secondary-500);
-}
-
-.process-tip p {
-  color: var(--secondary-800);
-  margin: 0;
-  font-size: var(--font-size-sm);
-}
-
-/* Norms Section */
-.norms-section {
-  padding: var(--spacing-20) 0;
-  background: linear-gradient(135deg, var(--gray-50), var(--primary-50));
-}
-
-.norms-card {
-  background: white;
-  padding: var(--spacing-10);
-  border-radius: var(--border-radius-xl);
-  box-shadow: var(--shadow-lg);
-}
-
-.norms-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-10);
-}
-
-.norms-column h4,
-.establishments-column h4 {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  color: var(--gray-800);
-  margin-bottom: var(--spacing-6);
-}
-
-.norms-list,
-.establishments-list {
-  list-style: none;
-  display: grid;
-  gap: var(--spacing-3);
-}
-
-.norms-list li,
-.establishments-list li {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-3);
-  padding: var(--spacing-3);
-  background: var(--gray-50);
-  border-radius: var(--border-radius-md);
-  transition: all var(--transition-fast);
-}
-
-.norms-list li:hover,
-.establishments-list li:hover {
-  background: var(--primary-50);
-  transform: translateX(4px);
-}
-
-.norms-list svg {
-  width: 20px;
-  height: 20px;
-  color: var(--primary-600);
-  flex-shrink: 0;
-}
-
-.establishments-list svg {
-  width: 20px;
-  height: 20px;
-  color: var(--secondary-600);
-  flex-shrink: 0;
-}
-
-.norms-list span,
-.establishments-list span {
-  color: var(--gray-700);
-  font-weight: 500;
-}
-
-/* CTA Section */
-.cta-section {
-  position: relative;
-  padding: var(--spacing-20) 0;
-  overflow: hidden;
-}
-
-.cta-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
-  z-index: 1;
-}
-
-.cta-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.2);
-  z-index: 2;
-}
-
-.cta-content {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  color: var(--text-light);
-}
-
-.cta-content h2 {
-  font-size: var(--font-size-3xl);
-  font-weight: 700;
-  margin-bottom: var(--spacing-4);
-  color: var(--text-light);
-}
-
-.cta-content p {
-  font-size: var(--font-size-lg);
-  margin-bottom: var(--spacing-8);
-  opacity: 0.95;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.cta-content .btn {
-  min-width: 280px;
-  font-weight: 600;
-}
-
-/* Animações */
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Media Queries Responsivos */
 @media (max-width: 1024px) {
-  .analysis-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-8);
-  }
-
-  .analysis-text {
-    order: 2;
-  }
-
-  .process-card {
-    order: 1;
-  }
-
-  .norms-content {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-8);
-  }
-
-  .analysis-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-4);
-  }
-}
-
-@media (max-width: 768px) {
-  .accessibility-hero {
-    min-height: 50vh;
-    padding: var(--spacing-16) 0;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-4xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-lg);
-  }
-
-  .hero-icon {
-    width: 64px;
-    height: 64px;
-  }
-
-  .hero-icon svg {
-    width: 36px;
-    height: 36px;
-  }
-
-  .importance-section,
-  .analysis-section,
-  .norms-section,
-  .cta-section {
-    padding: var(--spacing-16) 0;
-  }
-
-  .importance-header {
-    flex-direction: column;
-    text-align: center;
-    gap: var(--spacing-4);
-  }
-
-  .importance-icon {
-    margin-right: 0;
-  }
-
-  .importance-header h2 {
-    font-size: var(--font-size-2xl);
-  }
-
-  .section-title {
-    font-size: var(--font-size-xl);
-  }
-
-  .analysis-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-4);
-  }
-
-  .process-steps {
-    gap: var(--spacing-4);
-  }
-
-  .cta-content h2 {
-    font-size: var(--font-size-2xl);
-  }
-
-  .cta-content p {
-    font-size: var(--font-size-base);
-  }
-
-  .cta-content .btn {
-    width: 100%;
-    max-width: 320px;
-  }
-}
-
-@media (max-width: 480px) {
-  .accessibility-hero {
-    padding: var(--spacing-12) 0;
-  }
-
-  .hero-title {
-    font-size: var(--font-size-3xl);
-  }
-
-  .hero-subtitle {
-    font-size: var(--font-size-base);
-  }
-
-  .importance-card,
-  .process-card,
-  .norms-card {
-    padding: var(--spacing-6);
-  }
-
-  .importance-section,
-  .analysis-section,
-  .norms-section,
-  .cta-section {
-    padding: var(--spacing-12) 0;
-  }
-
-  .analysis-item {
-    gap: var(--spacing-2);
-  }
-
-  .process-step {
-    gap: var(--spacing-3);
-  }
-
-  .process-number {
-    width: 40px;
-    height: 40px;
-    font-size: var(--font-size-base);
-  }
-
-  .norms-list li,
-  .establishments-list li {
-    padding: var(--spacing-2);
-  }
+  .content-grid { grid-template-columns: 1fr; gap: 60px; }
 }
 </style>

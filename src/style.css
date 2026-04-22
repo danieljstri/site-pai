@@ -462,3 +462,7 @@
     @apply border-2 border-gray-800;
   }
 }
+
+
+/* Correção de Tema Escuro */
+.page-dark .gradient-bg, .page-dark .hero-section { background: transparent !important; }
