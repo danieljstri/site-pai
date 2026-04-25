@@ -5,9 +5,9 @@
       <div class="container">
         <div class="hero-content reveal">
           <div class="icon-wrap"><Accessibility :size="48" /></div>
-          <h1 class="hero-title">Laudo de <span class="accent">Acessibilidade</span></h1>
+          <h1 class="hero-title">Laudo de <span class="accent">Acessibilidade Técnica NBR 9050</span></h1>
           <p class="hero-subtitle">
-            Conformidade com a NBR 9050 e Lei Brasileira de Inclusão para estabelecimentos comerciais e públicos.
+            Conformidade com a NBR 9050 e Lei Brasileira de Inclusão para estabelecimentos comerciais e órgãos públicos.
           </p>
         </div>
       </div>
@@ -18,9 +18,9 @@
       <div class="container">
         <div class="content-grid">
           <div class="text-side reveal">
-            <h2 class="section-title">Inclusão e Conformidade Legal</h2>
+            <h2 class="section-title">Inclusão e Conformidade Legal em Acessibilidade</h2>
             <p>
-              O Laudo de Acessibilidade é um documento técnico indispensável para a obtenção de alvarás de funcionamento e renovação de licenças. Ele atesta que o imóvel garante autonomia e segurança para pessoas com deficiência ou mobilidade reduzida.
+              O <strong>Laudo de Acessibilidade</strong> é um documento técnico indispensável para a obtenção de alvarás de funcionamento e renovação de licenças. Ele atesta que o imóvel garante autonomia e segurança para pessoas com deficiência ou mobilidade reduzida, conforme as normas vigentes.
             </p>
             <div class="feature-list">
               <div class="feature-item" v-for="item in analysisItems" :key="item.title">
@@ -92,7 +92,25 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
-import { Accessibility, Check, Shield, FileText } from 'lucide-vue-next'
+import { useHead } from '@vueuse/head'
+import { Accessibility, Check, Shield } from 'lucide-vue-next'
+
+useHead({
+  title: 'Laudo de Acessibilidade NBR 9050 | EcoBrasil',
+  meta: [
+    {
+      name: 'description',
+      content: 'Elaboração de laudos de acessibilidade técnica conforme NBR 9050. Garanta a inclusão e conformidade legal do seu estabelecimento.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://eco-brasil.vercel.app/acessibilidade'
+    }
+  ]
+})
+
 
 const analysisItems = [
   { title: 'Rota Acessível', description: 'Rampas, calçadas e circulações internas conforme NBR 9050.' },

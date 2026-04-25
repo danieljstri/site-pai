@@ -4,9 +4,9 @@
     <section class="about-hero">
       <div class="container">
         <div class="hero-content reveal">
-          <h1 class="hero-title">Nossa Compromisso com a <span class="accent">Excelência Ambiental</span></h1>
+          <h1 class="hero-title">Nosso Compromisso com a <span class="accent">Excelência Ambiental</span></h1>
           <p class="hero-subtitle">
-            Desde 2015, transformamos desafios ambientais em oportunidades de crescimento sustentável para nossos clientes.
+            Desde 2015, transformamos desafios ambientais em oportunidades de crescimento sustentável para nossos clientes em todo o estado.
           </p>
         </div>
       </div>
@@ -17,7 +17,7 @@
       <div class="container">
         <div class="mission-grid">
           <div class="mission-text reveal">
-            <h2 class="section-title">Sobre a EcoBrasil</h2>
+            <h2 class="section-title">Sobre a EcoBrasil Consultoria Ambiental</h2>
             <p>
               Fundada em Aracaju, a EcoBrasil nasceu com o propósito de simplificar a complexidade do licenciamento ambiental e das normas técnicas. Somos uma consultoria que une rigor técnico à agilidade operacional.
             </p>
@@ -100,7 +100,24 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
+import { useHead } from '@vueuse/head'
 import { Users } from 'lucide-vue-next'
+
+useHead({
+  title: 'Sobre a EcoBrasil | Consultoria Ambiental em Aracaju',
+  meta: [
+    {
+      name: 'description',
+      content: 'Conheça a história da EcoBrasil, nossa missão de sustentabilidade e nossa equipe de especialistas em licenciamento ambiental e engenharia.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://eco-brasil.vercel.app/sobre'
+    }
+  ]
+})
 
 const timeline = [
   { year: '2015', title: 'Fundação', description: 'Início das operações em Sergipe com foco em Licenciamento Ambiental.' },

@@ -6,7 +6,7 @@
         <div class="hero-content reveal">
           <h1 class="hero-title">Estamos à sua <span class="accent">disposição</span></h1>
           <p class="hero-subtitle">
-            Entre em contato para discutir seu projeto ou tirar dúvidas sobre regularização ambiental.
+            Entre em contato para discutir seu projeto ou tirar dúvidas sobre regularização ambiental e licenciamento.
           </p>
         </div>
       </div>
@@ -18,7 +18,7 @@
           <!-- Contact Form -->
           <div class="contact-form-section reveal">
             <div class="form-wrapper">
-              <h2 class="form-title">Envie sua Mensagem</h2>
+              <h2 class="form-title">Solicite uma Consultoria Técnica</h2>
               <form @submit.prevent="submitForm" class="modern-form">
                 <div class="form-row">
                   <div class="form-group">
@@ -106,7 +106,24 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
+import { useHead } from '@vueuse/head'
 import { Phone, Mail, MapPin, AlertCircle } from 'lucide-vue-next'
+
+useHead({
+  title: 'Contato | EcoBrasil Consultoria Ambiental',
+  meta: [
+    {
+      name: 'description',
+      content: 'Entre em contato com a EcoBrasil para solicitar orçamentos de licenciamento ambiental, vistorias e consultoria técnica especializada.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://eco-brasil.vercel.app/contatos'
+    }
+  ]
+})
 
 const isSubmitting = ref(false)
 const submitMessage = ref('')

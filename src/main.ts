@@ -1,6 +1,12 @@
-import { createApp } from "vue"
+import { ViteSSG } from "vite-ssg"
 import App from "./App.vue"
-import router from "./router"
+import { routes } from "./router"
 import "./style.css"
 
-createApp(App).use(router).mount("#app")
+export const createApp = ViteSSG(
+  App,
+  { routes },
+  ({ app, router, routes, isClient, initialState }) => {
+    // Aqui você pode adicionar plugins, como Pinia se necessário
+  }
+)

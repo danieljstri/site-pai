@@ -1,81 +1,25 @@
-<template>
-  <div class="page-dark">
-    <!-- Hero Section -->
-    <section class="services-hero">
-      <div class="container">
-        <div class="hero-content reveal">
-          <h1 class="hero-title">Soluções Ambientais de <span class="accent">Alta Performance</span></h1>
-          <p class="hero-subtitle">
-            Consultoria técnica especializada para garantir a conformidade legal e a sustentabilidade do seu negócio.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services Grid -->
-    <section class="services-main section-lg">
-      <div class="container">
-        <div class="services-grid">
-          <ServiceCard 
-            v-for="service in services" 
-            :key="service.id" 
-            :service="service" 
-            :show-details="true"
-          />
-        </div>
-
-        <!-- Process Section -->
-        <div class="process-section reveal">
-          <div class="section-header">
-            <h2 class="section-title">Nossa Metodologia</h2>
-            <p class="section-subtitle">
-              Processos estruturados que garantem 100% de aprovação técnica.
-            </p>
-          </div>
-
-          <div class="process-grid">
-            <div class="process-step">
-              <div class="step-num">01</div>
-              <h3>Diagnóstico</h3>
-              <p>Análise detalhada da situação atual e requisitos específicos.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-num">02</div>
-              <h3>Estratégia</h3>
-              <p>Desenvolvimento do plano de ação e preparação documental.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-num">03</div>
-              <h3>Execução</h3>
-              <p>Acompanhamento rigoroso junto aos órgãos competentes.</p>
-            </div>
-            <div class="process-step">
-              <div class="step-num">04</div>
-              <h3>Conformidade</h3>
-              <p>Entrega de resultados e monitoramento contínuo.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="services-cta section-lg">
-      <div class="container">
-        <div class="cta-box reveal">
-          <h2>Pronto para regularizar sua empresa?</h2>
-          <p>Fale com nossos especialistas e obtenha um diagnóstico inicial sem compromisso.</p>
-          <router-link to="/contatos" class="btn-solid">Solicitar Consultoria</router-link>
-        </div>
-      </div>
-    </section>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { onMounted, onUnmounted } from 'vue'
+import { useHead } from '@vueuse/head'
 import ServiceCard from '@/components/ServiceCard.vue'
 import { services } from '@/data/services'
+
+// Meta tags SEO
+useHead({
+  title: 'Serviços de Consultoria Ambiental | Licenciamento e Vistorias',
+  meta: [
+    {
+      name: 'description',
+      content: 'Confira nossos serviços de licenciamento ambiental, vistorias técnicas, PGRS, laudos de acessibilidade e conformidade legal para sua empresa.'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://eco-brasil.vercel.app/servicos'
+    }
+  ]
+})
 
 let observer: IntersectionObserver | null = null
 onMounted(() => {
@@ -89,6 +33,81 @@ onMounted(() => {
 })
 onUnmounted(() => observer?.disconnect())
 </script>
+
+<template>
+  <div class="page-dark">
+    <!-- Hero Section -->
+    <section class="services-hero">
+      <div class="container">
+        <div class="hero-content reveal">
+          <h1 class="hero-title">Soluções Ambientais de <span class="accent">Alta Performance</span></h1>
+          <p class="hero-subtitle">
+            Consultoria técnica especializada para garantir a conformidade legal e a sustentabilidade do seu negócio com foco em resultados.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="services-main section-lg">
+      <div class="container">
+        <h2 class="section-title text-center mb-16">Nossa Grade de Serviços Especializados</h2>
+        <div class="services-grid">
+          <ServiceCard 
+            v-for="service in services" 
+            :key="service.id" 
+            :service="service" 
+            :show-details="true"
+          />
+        </div>
+
+        <!-- Process Section -->
+        <div class="process-section reveal">
+          <div class="section-header">
+            <h2 class="section-title">Nossa Metodologia de Trabalho</h2>
+            <p class="section-subtitle">
+              Processos estruturados que garantem 100% de aprovação técnica em todos os órgãos competentes.
+            </p>
+          </div>
+
+          <div class="process-grid">
+            <div class="process-step">
+              <div class="step-num">01</div>
+              <h3 class="benefit-title">Diagnóstico Ambiental</h3>
+              <p>Análise detalhada da situação atual e identificação de todos os requisitos legais específicos para seu setor.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-num">02</div>
+              <h3 class="benefit-title">Planejamento Estratégico</h3>
+              <p>Desenvolvimento do plano de ação personalizado e preparação minuciosa de toda a documentação necessária.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-num">03</div>
+              <h3 class="benefit-title">Execução Técnica</h3>
+              <p>Protocolo e acompanhamento rigoroso junto aos órgãos competentes (Adema, Ibama, etc) até a conclusão.</p>
+            </div>
+            <div class="process-step">
+              <div class="step-num">04</div>
+              <h3 class="benefit-title">Conformidade e Monitoramento</h3>
+              <p>Entrega de resultados finais e estabelecimento de cronograma para monitoramento contínuo de condicionantes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="services-cta section-lg">
+      <div class="container">
+        <div class="cta-box reveal">
+          <h2>Pronto para regularizar sua empresa hoje?</h2>
+          <p>Fale com nossos especialistas e obtenha um diagnóstico inicial sem compromisso para seu licenciamento ambiental.</p>
+          <router-link to="/contatos" class="btn-solid">Solicitar Consultoria Técnica</router-link>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
 
 <style scoped>
 .page-dark { background-color: #0a1a12; color: #ffffff; min-height: 100vh; }

@@ -4,11 +4,12 @@
     <section class="hero-section full-height">
       <div class="container">
         <div class="hero-content reveal">
-          <h1 class="hero-title">
-            O futuro da sua empresa é <span class="gradient-text">sustentável</span>.
-          </h1>
+          <h1 class="hero-title static">Consultoria Ambiental para Empresas</h1>
+          <h2 class="hero-subtitle-dynamic">
+            O futuro do seu negócio é <span class="gradient-text">{{ displayText }}</span>.
+          </h2>
           <p class="hero-subtitle">
-            Consultoria ambiental de alta performance com 100% de aprovação técnica e agilidade garantida.
+            A EcoBrasil oferece consultoria ambiental completa para empresas: licenciamento ambiental, vistoria técnica, conformidade e gestão de riscos. Aprovação técnica garantida.
           </p>
           <div class="hero-actions">
             <router-link to="/contatos" class="apple-btn primary">Iniciar Projeto</router-link>
@@ -48,12 +49,55 @@
           <div class="split-text reveal">
             <h2 class="section-title">Licenciamento sem burocracia.</h2>
             <p class="section-description">
-              Nossa metodologia foca na agilidade e precisão técnica. Cuidamos de todo o processo para que você foque no que realmente importa: seu negócio.
+              Nossa metodologia foca na agilidade e precisão técnica. Cuidamos de todo o processo para que você foque no que realmente importa: seu negócio. Garantimos que toda a documentação esteja impecável para uma aprovação sem retornos.
             </p>
             <router-link to="/sobre" class="text-link">Conheça nossa abordagem →</router-link>
           </div>
-          <div class="split-image reveal delay-1">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80" alt="Escritório moderno" class="modern-img" />
+          <div class="split-image animation-container">
+            <div class="floating-text left">
+              <span class="highlight-box">Licenciamento sem dor de cabeça</span>
+            </div>
+            <div class="contract-wrapper">
+              <svg viewBox="0 0 400 500" class="contract-svg">
+                <!-- Papel do Contrato -->
+                <rect x="50" y="20" width="300" height="460" rx="10" fill="white" stroke="#d4b680" stroke-width="2" />
+                
+                <!-- Linhas de texto simuladas -->
+                <g class="contract-lines" stroke="#e2e8f0" stroke-width="4" stroke-linecap="round">
+                  <line x1="80" y1="70" x2="320" y2="70" />
+                  <line x1="80" y1="100" x2="280" y2="100" />
+                  <line x1="80" y1="130" x2="320" y2="130" />
+                  <line x1="80" y1="160" x2="300" y2="160" />
+                  <line x1="80" y1="220" x2="320" y2="220" stroke="#cbd5e1" />
+                  <line x1="80" y1="250" x2="320" y2="250" stroke="#cbd5e1" />
+                  <line x1="80" y1="280" x2="200" y2="280" stroke="#cbd5e1" />
+                </g>
+
+                <!-- Área da Assinatura -->
+                <line x1="80" y1="420" x2="320" y2="420" stroke="#0a1a12" stroke-width="2" />
+                <text x="80" y="445" font-family="Inter" font-size="12" fill="#64748b">Assinatura Digital Certificada</text>
+
+                <!-- O caminho da Assinatura (o que será animado) -->
+                <path id="signature-path" 
+                  d="M100,400 C120,380 140,410 160,390 C180,370 200,420 230,395 C260,370 280,410 310,385" 
+                  fill="none" 
+                  stroke="#0a1a12" 
+                  stroke-width="3" 
+                  stroke-linecap="round" 
+                  stroke-linejoin="round"
+                />
+
+                <!-- Caneta -->
+                <g id="pen" transform="translate(100,400)">
+                  <path d="M-5,-5 L20,-30 L30,-20 L5,5 Z" fill="#334155" />
+                  <path d="M-5,-5 L0,0 L5,5" stroke="#334155" stroke-width="2" />
+                  <circle cx="-5" cy="-5" r="2" fill="#0a1a12" />
+                </g>
+              </svg>
+            </div>
+            <div class="floating-text right">
+              <span class="highlight-box">Sua empresa regularizada</span>
+            </div>
           </div>
         </div>
       </div>
@@ -63,8 +107,8 @@
     <section class="services-highlight section-lg bg-soft">
       <div class="container">
         <div class="section-header text-center reveal">
-          <h2 class="section-title">Serviços Especializados</h2>
-          <p class="section-subtitle">Soluções completas em conformidade ambiental e técnica.</p>
+          <h2 class="section-title">Nossos Serviços em Destaque</h2>
+          <p class="section-subtitle">Soluções completas em conformidade ambiental, licenciamento e vistoria técnica.</p>
         </div>
         <div class="services-grid">
           <ServiceCard 
@@ -80,10 +124,31 @@
       </div>
     </section>
 
+    <!-- Content Expansion 2 -->
+    <section class="benefits-section section-lg">
+      <div class="container">
+        <h2 class="section-title text-center mb-16">Por que escolher a EcoBrasil Consultoria?</h2>
+        <div class="benefits-grid">
+          <div class="benefit-item reveal">
+            <h3 class="benefit-title">Conformidade Legal Rigorosa</h3>
+            <p>Garantimos que sua empresa atenda a todas as resoluções do CONAMA e legislações locais, protegendo seu negócio de sanções jurídicas e administrativas.</p>
+          </div>
+          <div class="benefit-item reveal">
+            <h3 class="benefit-title">Redução de Custos Operacionais</h3>
+            <p>Através da eficiência ambiental, identificamos oportunidades de economia em recursos hídricos, energia e gestão de resíduos, impactando diretamente no seu lucro.</p>
+          </div>
+          <div class="benefit-item reveal">
+            <h3 class="benefit-title">Agilidade em Processos</h3>
+            <p>Nosso relacionamento ético e profissional com os órgãos ambientais permite que os processos fluam com a rapidez que o mercado exige, sem abrir mão do rigor técnico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Social Proof (Carousel) -->
     <div class="reveal section-lg">
       <div class="container">
-        <h2 class="section-title text-center mb-12">Quem confia na EcoBrasil</h2>
+        <h2 class="section-title text-center mb-12">Empresas que Confiam na Nossa Consultoria Ambiental</h2>
         <ClientCarousel />
       </div>
     </div>
@@ -92,10 +157,10 @@
     <section class="final-cta section-lg">
       <div class="container">
         <div class="cta-card reveal">
-          <h2 class="cta-title">Vamos construir algo sustentável juntos?</h2>
-          <p class="cta-text">Fale com um de nossos especialistas hoje mesmo e garanta sua conformidade.</p>
+          <h2 class="cta-title">Vamos construir um futuro sustentável juntos?</h2>
+          <p class="cta-text">Fale com um de nossos especialistas em consultoria ambiental hoje mesmo e garanta a conformidade da sua empresa. Aprovação técnica e segurança jurídica.</p>
           <div class="cta-actions">
-            <router-link to="/contatos" class="apple-btn primary lg">Solicitar Consultoria</router-link>
+            <router-link to="/contatos" class="apple-btn primary lg">Solicitar Consultoria Agora</router-link>
           </div>
         </div>
       </div>
@@ -104,25 +169,145 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onMounted, onUnmounted } from 'vue'
-import { Shield, Clock, Users, Check, FileText, Eye, Settings, Accessibility } from 'lucide-vue-next'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
+import { useHead } from '@vueuse/head'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin'
 import ClientCarousel from '@/components/ClientCarousel.vue'
+import ServiceCard from '@/components/ServiceCard.vue'
 import { services } from '@/data/services'
 import type { Service } from '@/types'
 
+// Meta tags SEO
+useHead({
+  title: 'EcoBrasil | Consultoria Ambiental e Licenciamento para Empresas',
+  meta: [
+    {
+      name: 'description',
+      content: 'A EcoBrasil oferece consultoria ambiental completa para empresas: licenciamento ambiental, vistoria técnica, conformidade e gestão de riscos. Aprovação garantida. Fale conosco.'
+    },
+    {
+      property: 'og:title',
+      content: 'EcoBrasil | Consultoria Ambiental e Licenciamento'
+    },
+    {
+      property: 'og:description',
+      content: 'Soluções em licenciamento, vistorias e conformidade ambiental com 100% de aprovação técnica.'
+    },
+    {
+      property: 'og:type',
+      content: 'website'
+    },
+    {
+      property: 'og:url',
+      content: 'https://eco-brasil.vercel.app/'
+    }
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: 'https://eco-brasil.vercel.app/'
+    }
+  ]
+})
+
+// Registrar Plugins
+gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
+
 const featuredServices = computed<Service[]>(() => services.slice(0, 4))
 
-const getIcon = (iconName: string) => {
-  const icons: Record<string, any> = {
-    Shield, Clock, Users, Check, FileText, Eye, Settings, Accessibility
+// Typing Animation Logic
+const words = ['sustentável', 'licenciado', 'acessível']
+const displayText = ref(words[0])
+const currentWordIndex = ref(0)
+const isDeleting = ref(false)
+const typeSpeed = ref(150)
+
+const handleTyping = () => {
+  const currentFullWord = words[currentWordIndex.value]
+  
+  if (isDeleting.value) {
+    displayText.value = currentFullWord.substring(0, displayText.value.length - 1)
+    typeSpeed.value = 50
+  } else {
+    displayText.value = currentFullWord.substring(0, displayText.value.length + 1)
+    typeSpeed.value = 150
   }
-  return icons[iconName] || Shield
+
+  if (!isDeleting.value && displayText.value === currentFullWord) {
+    isDeleting.value = true
+    typeSpeed.value = 2000 // Pause at the end
+  } else if (isDeleting.value && displayText.value === '') {
+    isDeleting.value = false
+    currentWordIndex.value = (currentWordIndex.value + 1) % words.length
+    typeSpeed.value = 500
+  }
+
+  typingTimeout = setTimeout(handleTyping, typeSpeed.value)
 }
 
 // Scroll Animation Logic using Intersection Observer
 let observer: IntersectionObserver | null = null
+let typingTimeout: any = null
+let gsapContext: any = null
 
 onMounted(() => {
+  handleTyping()
+
+  // GSAP Contract Animation
+  gsapContext = gsap.context(() => {
+    const path = document.querySelector('#signature-path') as SVGPathElement
+    if (path) {
+      const pathLength = path.getTotalLength()
+      
+      gsap.set(path, {
+        strokeDasharray: pathLength,
+        strokeDashoffset: pathLength
+      })
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '.feature-split-section',
+          start: 'center center',
+          end: '+=1000',
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1
+        }
+      })
+
+      tl.to(path, {
+        strokeDashoffset: 0,
+        ease: 'none',
+        duration: 1
+      })
+      .to('#pen', {
+        motionPath: {
+          path: '#signature-path',
+          align: '#signature-path',
+          alignOrigin: [0.5, 0.5],
+          autoRotate: true
+        },
+        ease: 'none',
+        duration: 1
+      }, 0)
+      
+      .to('.floating-text.left', { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        duration: 0.1 
+      }, 0.4) 
+      .to('.floating-text.right', { 
+        opacity: 1, 
+        y: 0, 
+        scale: 1,
+        duration: 0.1 
+      }, 0.7)
+    }
+  })
+
   const revealElements = document.querySelectorAll('.reveal')
   
   observer = new IntersectionObserver((entries) => {
@@ -141,16 +326,84 @@ onMounted(() => {
 
 onUnmounted(() => {
   observer?.disconnect()
+  clearTimeout(typingTimeout)
+  if (gsapContext) gsapContext.revert()
 })
 </script>
 
 <style scoped>
-/* Design Sólido e Maduro - Consultoria Ambiental Premium com Alto Contraste */
+/* Estilos para o Contrato Animado */
+.animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.contract-wrapper {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transform: rotateY(-10deg) rotateX(5deg);
+  transition: transform 0.5s ease;
+}
+
+.contract-wrapper:hover {
+  transform: rotateY(0deg) rotateX(0deg);
+}
+
+.contract-svg {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+}
+
+/* Floating Text Blocks */
+.floating-text {
+  position: absolute;
+  z-index: 10;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+}
+
+.floating-text.left {
+  top: 15%;
+  left: -20%;
+}
+
+.floating-text.right {
+  bottom: 25%;
+  right: -15%;
+}
+
+.highlight-box {
+  background: var(--firm-accent);
+  color: #000000;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  display: inline-block;
+}
+
+/* Reveal Delays */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+
+/* Design Sólido e Maduro */
 .home-modern {
-  --firm-bg: #0a1a12; /* Verde Musgo Profundo */
-  --firm-accent: #d4b680; /* Bronze mais claro para melhor contraste */
-  --firm-text: #ffffff; /* Branco puro para máximo contraste */
-  --firm-subtext: #cbd5e1; /* Cinza claro luminoso para legibilidade (WCAG Compliant) */
+  --firm-bg: #0a1a12;
+  --firm-accent: #d4b680;
+  --firm-text: #ffffff;
+  --firm-subtext: #cbd5e1;
   --firm-section-bg: #07140e;
   
   color: var(--firm-text);
@@ -177,31 +430,39 @@ onUnmounted(() => {
 .hero-section {
   position: relative;
   text-align: left;
-  /* Sobreposição de gradiente mais escura para garantir contraste do texto branco */
   background: linear-gradient(to right, rgba(10, 26, 18, 0.98), rgba(10, 26, 18, 0.7)), url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
 }
 
 .hero-title {
-  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  font-size: clamp(2.2rem, 5.5vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -0.01em;
   line-height: 1.1;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
   color: #ffffff;
-  max-width: 900px;
+  max-width: 1000px;
+}
+
+.hero-subtitle-dynamic {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: #ffffff;
+  min-height: 1.2em; /* Reserva espaço para evitar saltos verticais */
 }
 
 .gradient-text {
   color: var(--firm-accent);
-  text-shadow: 0 0 20px rgba(212, 182, 128, 0.2); /* Brilho sutil para destacar */
+  text-shadow: 0 0 20px rgba(212, 182, 128, 0.2);
+  position: relative;
 }
 
 .hero-subtitle {
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
   color: var(--firm-subtext);
-  max-width: 650px;
+  max-width: 800px;
   margin-bottom: 48px;
   line-height: 1.6;
   font-weight: 400;
@@ -224,7 +485,7 @@ onUnmounted(() => {
 
 .apple-btn.primary {
   background-color: var(--firm-accent);
-  color: #000000; /* Preto puro no bronze claro para legibilidade máxima */
+  color: #000000;
 }
 
 .apple-btn.primary:hover {
@@ -235,7 +496,7 @@ onUnmounted(() => {
 
 .apple-btn.secondary {
   color: #ffffff;
-  border: 2px solid #ffffff; /* Borda mais grossa para visibilidade */
+  border: 2px solid #ffffff;
   margin-left: 20px;
   background: rgba(255, 255, 255, 0.05);
 }
@@ -276,11 +537,11 @@ onUnmounted(() => {
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #ffffff; /* Branco para melhor contraste que o subtext anterior */
+  color: #ffffff;
   font-weight: 600;
 }
 
-/* Feature Split Section */
+/* SEO Content Section */
 .section-title {
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
@@ -289,10 +550,10 @@ onUnmounted(() => {
 }
 
 .section-description {
-  font-size: 19px;
+  font-size: 18px;
   color: var(--firm-subtext);
   line-height: 1.7;
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .text-link {
@@ -305,29 +566,37 @@ onUnmounted(() => {
   text-underline-offset: 4px;
 }
 
-/* Services Minimal Grid */
-.service-minimal-card {
+/* Benefits Grid */
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.benefit-item {
   background: #0d2319;
-  padding: 50px;
+  padding: 40px;
   border-radius: 4px;
   border: 1px solid rgba(255,255,255,0.05);
-  transition: all 0.4s ease;
 }
 
-.service-minimal-card h3 {
-  color: #ffffff;
-  font-size: 22px;
+.benefit-title {
+  font-size: 20px;
   font-weight: 700;
+  color: var(--firm-accent);
+  margin-bottom: 16px;
 }
 
-.service-minimal-card p {
+.benefit-item p {
   color: var(--firm-subtext);
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* CTA Card */
 .cta-card {
   background: var(--firm-accent);
-  color: #000000; /* Texto preto no fundo bronze claro */
+  color: #000000;
   padding: 100px 60px;
   border-radius: 8px;
   text-align: center;
@@ -343,7 +612,7 @@ onUnmounted(() => {
   margin-bottom: 48px;
   color: #000000;
   font-weight: 500;
-  max-width: 700px;
+  max-width: 800px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -366,6 +635,10 @@ onUnmounted(() => {
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+  .benefits-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 768px) {
   .section-lg { padding: 60px 0; }
   .hero-section { text-align: center; }
@@ -374,7 +647,7 @@ onUnmounted(() => {
   .apple-btn.secondary { margin-left: 0; }
   .stats-grid { grid-template-columns: 1fr; gap: 40px; }
   .split-content { grid-template-columns: 1fr; gap: 40px; }
-  .split-image { order: -1; } /* Image on top for mobile */
+  .split-image { order: -1; }
   .cta-card { padding: 60px 20px; }
 }
 </style>
