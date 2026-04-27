@@ -8,7 +8,7 @@
             EcoBrasil
           </div>
           <p class="footer-description">
-            Consultoria ambiental de alta performance. Excelência técnica e conformidade para o seu negócio desde 2018.
+            Consultoria em engenharia de alta performance. Especialistas em implantação e regularização legal com mais de 20 anos de expertise.
           </p>
         </div>
 
@@ -16,9 +16,9 @@
           <h4 class="footer-title">Navegação</h4>
           <ul class="footer-list">
             <li><router-link to="/">Início</router-link></li>
-            <li><router-link to="/servicos">Serviços</router-link></li>
-            <li><router-link to="/sobre">Sobre Nós</router-link></li>
-            <li><router-link to="/contatos">Contato</router-link></li>
+            <li><router-link to="/quem-somos">Quem Somos</router-link></li>
+            <li><router-link to="/ambiental">Ambiental</router-link></li>
+            <li><router-link to="/compliance">Compliance</router-link></li>
           </ul>
         </div>
 
@@ -57,16 +57,17 @@ interface ContactInfo {
 }
 
 const servicesList: string[] = [
+  'Compliance Legal',
   'Licenciamento Ambiental',
-  'Vistoria & Inspeção',
-  'Controle de Licenças',
-  'Regularização de Licenças'
+  'Corpo de Bombeiros',
+  'Acessibilidade e Projetos',
+  'Consultoria em Engenharia'
 ]
 
 const contactInfo: ContactInfo = {
-  phone: '(79) 3024-5555',
-  email: 'contato@ecobrasil.com.br',
-  location: 'Aracaju - SE'
+  phone: '(79) 3022-1212',
+  email: 'comercial@ecobrasilambiental.com.br',
+  location: 'Av. Paulo VI, 239 – Inácio Barbosa – Aracaju/SE'
 }
 
 const currentYear = computed<number>(() => new Date().getFullYear())

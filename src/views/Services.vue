@@ -6,17 +6,17 @@ import { services } from '@/data/services'
 
 // Meta tags SEO
 useHead({
-  title: 'Serviços de Consultoria Ambiental | Licenciamento e Vistorias',
+  title: 'Nossos Serviços | Ecobrasil Engenharia e Consultoria',
   meta: [
     {
       name: 'description',
-      content: 'Confira nossos serviços de licenciamento ambiental, vistorias técnicas, PGRS, laudos de acessibilidade e conformidade legal para sua empresa.'
+      content: 'Soluções completas em Compliance, Licenciamento Ambiental, Corpo de Bombeiros, Acessibilidade e Consultoria em Engenharia.'
     }
   ],
   link: [
     {
       rel: 'canonical',
-      href: 'https://eco-brasil.vercel.app/servicos'
+      href: 'https://ecobrasilambiental.com.br/servicos'
     }
   ]
 })
@@ -40,9 +40,9 @@ onUnmounted(() => observer?.disconnect())
     <section class="services-hero">
       <div class="container">
         <div class="hero-content reveal">
-          <h1 class="hero-title">Soluções Ambientais de <span class="accent">Alta Performance</span></h1>
+          <h1 class="hero-title">Soluções em Engenharia de <span class="accent">Alta Performance</span></h1>
           <p class="hero-subtitle">
-            Consultoria técnica especializada para garantir a conformidade legal e a sustentabilidade do seu negócio com foco em resultados.
+            Consultoria técnica especializada para garantir a conformidade legal e a segurança do seu empreendimento com foco em resultados.
           </p>
         </div>
       </div>
@@ -66,30 +66,30 @@ onUnmounted(() => observer?.disconnect())
           <div class="section-header">
             <h2 class="section-title">Nossa Metodologia de Trabalho</h2>
             <p class="section-subtitle">
-              Processos estruturados que garantem 100% de aprovação técnica em todos os órgãos competentes.
+              Processos estruturados que garantem excelência técnica e aprovação junto aos órgãos competentes.
             </p>
           </div>
 
           <div class="process-grid">
             <div class="process-step">
               <div class="step-num">01</div>
-              <h3 class="benefit-title">Diagnóstico Ambiental</h3>
-              <p>Análise detalhada da situação atual e identificação de todos os requisitos legais específicos para seu setor.</p>
+              <h3 class="benefit-title">Diagnóstico Técnico</h3>
+              <p>Análise detalhada da situação atual e identificação de todos os requisitos legais e técnicos específicos para seu empreendimento.</p>
             </div>
             <div class="process-step">
               <div class="step-num">02</div>
               <h3 class="benefit-title">Planejamento Estratégico</h3>
-              <p>Desenvolvimento do plano de ação personalizado e preparação minuciosa de toda a documentação necessária.</p>
+              <p>Desenvolvimento do plano de ação personalizado e preparação minuciosa de toda a documentação e projetos necessários.</p>
             </div>
             <div class="process-step">
               <div class="step-num">03</div>
-              <h3 class="benefit-title">Execução Técnica</h3>
-              <p>Protocolo e acompanhamento rigoroso junto aos órgãos competentes (Adema, Ibama, etc) até a conclusão.</p>
+              <h3 class="benefit-title">Execução e Protocolo</h3>
+              <p>Acompanhamento rigoroso junto aos órgãos competentes (Corpo de Bombeiros, Órgãos Ambientais, Prefeituras) até a conclusão.</p>
             </div>
             <div class="process-step">
               <div class="step-num">04</div>
-              <h3 class="benefit-title">Conformidade e Monitoramento</h3>
-              <p>Entrega de resultados finais e estabelecimento de cronograma para monitoramento contínuo de condicionantes.</p>
+              <h3 class="benefit-title">Conformidade Legal</h3>
+              <p>Entrega das certificações finais e estabelecimento de cronograma para manutenção contínua das condições legais.</p>
             </div>
           </div>
         </div>
@@ -100,8 +100,8 @@ onUnmounted(() => observer?.disconnect())
     <section class="services-cta section-lg">
       <div class="container">
         <div class="cta-box reveal">
-          <h2>Pronto para regularizar sua empresa hoje?</h2>
-          <p>Fale com nossos especialistas e obtenha um diagnóstico inicial sem compromisso para seu licenciamento ambiental.</p>
+          <h2>Pronto para regularizar seu negócio?</h2>
+          <p>Fale com nossos especialistas e obtenha um diagnóstico inicial para seu empreendimento.</p>
           <router-link to="/contatos" class="btn-solid">Solicitar Consultoria Técnica</router-link>
         </div>
       </div>
@@ -116,7 +116,6 @@ onUnmounted(() => observer?.disconnect())
 .services-hero {
   height: 60vh;
   min-height: 500px;
-  /* Gradiente sólido escuro removido, mantendo apenas uma sobreposição de cor escura para contraste */
   background-color: #05120b;
   background-image: linear-gradient(rgba(10, 26, 18, 0.9), rgba(10, 26, 18, 0.9)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80');
   background-size: cover;

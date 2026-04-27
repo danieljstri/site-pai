@@ -4,16 +4,16 @@
     <section class="hero-section full-height">
       <div class="container">
         <div class="hero-content reveal">
-          <h1 class="hero-title static">Consultoria Ambiental para Empresas</h1>
+          <h1 class="hero-title static">Se você chegou até aqui, certamente temos a solução que você precisa!</h1>
           <h2 class="hero-subtitle-dynamic">
-            O futuro do seu negócio é <span class="gradient-text">{{ displayText }}</span>.
+            O foco do seu negócio é <span class="gradient-text">{{ displayText }}</span>.
           </h2>
           <p class="hero-subtitle">
-            A EcoBrasil oferece consultoria ambiental completa para empresas: licenciamento ambiental, vistoria técnica, conformidade e gestão de riscos. Aprovação técnica garantida.
+            Somos uma empresa de consultoria em engenharia voltada ao seu empreendimento nas fases de implantação, regularização e manutenção das condições legais.
           </p>
           <div class="hero-actions">
-            <router-link to="/contatos" class="apple-btn primary">Iniciar Projeto</router-link>
-            <router-link to="/servicos" class="apple-btn secondary">Explorar Serviços</router-link>
+            <a href="mailto:comercial@ecobrasilambiental.com.br" class="apple-btn primary">Iniciar Projeto</a>
+            <router-link to="/quem-somos" class="apple-btn secondary">Sobre a Ecobrasil</router-link>
           </div>
         </div>
       </div>
@@ -27,16 +27,16 @@
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item reveal">
-            <span class="stat-number">500+</span>
-            <span class="stat-label">Empresas Atendidas</span>
+            <span class="stat-number">20+ Anos</span>
+            <span class="stat-label">de Expertise</span>
           </div>
           <div class="stat-item reveal">
-            <span class="stat-number">100%</span>
-            <span class="stat-label">De Aprovação</span>
+            <span class="stat-number">1.200.000 m²</span>
+            <span class="stat-label">Área Licenciada nos últimos 05 anos</span>
           </div>
           <div class="stat-item reveal">
-            <span class="stat-number">8+</span>
-            <span class="stat-label">Anos de Experiência</span>
+            <span class="stat-number">250.000 m²</span>
+            <span class="stat-label">Laudos e Projetos de Acessibilidade</span>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
             <p class="section-description">
               Nossa metodologia foca na agilidade e precisão técnica. Cuidamos de todo o processo para que você foque no que realmente importa: seu negócio. Garantimos que toda a documentação esteja impecável para uma aprovação sem retornos.
             </p>
-            <router-link to="/sobre" class="text-link">Conheça nossa abordagem →</router-link>
+            <router-link to="/quem-somos" class="text-link">Conheça nossa abordagem →</router-link>
           </div>
           <div class="split-image animation-container">
             <div class="floating-text left">
@@ -118,7 +118,7 @@
           />
         </div>
         <div class="text-center mt-12 reveal">
-          <router-link to="/servicos" class="apple-btn outline">Ver todos os serviços</router-link>
+          <router-link to="/ambiental" class="apple-btn outline">Ver Licenciamento Ambiental</router-link>
         </div>
       </div>
     </section>
@@ -126,19 +126,19 @@
     <!-- Content Expansion 2 -->
     <section class="benefits-section section-lg">
       <div class="container">
-        <h2 class="section-title text-center mb-16">Por que escolher a EcoBrasil Consultoria?</h2>
+        <h2 class="section-title text-center mb-16">Por que escolher a Ecobrasil Engenharia?</h2>
         <div class="benefits-grid">
           <div class="benefit-item reveal">
-            <h3 class="benefit-title">Conformidade Legal Rigorosa</h3>
-            <p>Garantimos que sua empresa atenda a todas as resoluções do CONAMA e legislações locais, protegendo seu negócio de sanções jurídicas e administrativas.</p>
+            <h3 class="benefit-title">Conformidade e Segurança</h3>
+            <p>Garantimos que sua edificação e seu negócio estejam em total conformidade legal, protegendo seu investimento e garantindo a segurança das operações.</p>
           </div>
           <div class="benefit-item reveal">
-            <h3 class="benefit-title">Redução de Custos Operacionais</h3>
-            <p>Através da eficiência ambiental, identificamos oportunidades de economia em recursos hídricos, energia e gestão de resíduos, impactando diretamente no seu lucro.</p>
+            <h3 class="benefit-title">Expertise Comprovada</h3>
+            <p>Com mais de 20 anos de atuação, nossa equipe técnica possui o conhecimento necessário para resolver desafios complexos de engenharia e regularização.</p>
           </div>
           <div class="benefit-item reveal">
-            <h3 class="benefit-title">Agilidade em Processos</h3>
-            <p>Nosso relacionamento ético e profissional com os órgãos ambientais permite que os processos fluam com a rapidez que o mercado exige, sem abrir mão do rigor técnico.</p>
+            <h3 class="benefit-title">Foco em Resultados</h3>
+            <p>Nossa abordagem é voltada para a eficiência nas fases de implantação e manutenção, assegurando agilidade nos processos junto aos órgãos competentes.</p>
           </div>
         </div>
       </div>
@@ -147,7 +147,7 @@
     <!-- Social Proof (Carousel) -->
     <div class="reveal section-lg">
       <div class="container">
-        <h2 class="section-title text-center mb-12">Empresas que Confiam na Nossa Consultoria Ambiental</h2>
+        <h2 class="section-title text-center mb-12">Empresas que Confiam na Ecobrasil</h2>
         <ClientCarousel />
       </div>
     </div>
@@ -156,10 +156,10 @@
     <section class="final-cta section-lg">
       <div class="container">
         <div class="cta-card reveal">
-          <h2 class="cta-title">Vamos construir um futuro sustentável juntos?</h2>
-          <p class="cta-text">Fale com um de nossos especialistas em consultoria ambiental hoje mesmo e garanta a conformidade da sua empresa. Aprovação técnica e segurança jurídica.</p>
+          <h2 class="cta-title">Pronto para regularizar seu empreendimento?</h2>
+          <p class="cta-text">Fale com um de nossos especialistas em engenharia hoje mesmo e garanta a segurança jurídica e operacional do seu negócio.</p>
           <div class="cta-actions">
-            <router-link to="/contatos" class="apple-btn primary lg">Solicitar Consultoria Agora</router-link>
+            <a href="mailto:comercial@ecobrasilambiental.com.br" class="apple-btn primary lg">Solicitar Consultoria Agora</a>
           </div>
         </div>
       </div>
@@ -180,19 +180,19 @@ import type { Service } from '@/types'
 
 // Meta tags SEO
 useHead({
-  title: 'EcoBrasil | Consultoria Ambiental e Licenciamento para Empresas',
+  title: 'Ecobrasil | Consultoria em Engenharia e Regularização Legal',
   meta: [
     {
       name: 'description',
-      content: 'A EcoBrasil oferece consultoria ambiental completa para empresas: licenciamento ambiental, vistoria técnica, conformidade e gestão de riscos. Aprovação garantida. Fale conosco.'
+      content: 'A Ecobrasil é especialista em consultoria em engenharia para implantação, regularização e manutenção legal de empreendimentos. Mais de 20 anos de expertise.'
     },
     {
       property: 'og:title',
-      content: 'EcoBrasil | Consultoria Ambiental e Licenciamento'
+      content: 'Ecobrasil | Engenharia e Consultoria'
     },
     {
       property: 'og:description',
-      content: 'Soluções em licenciamento, vistorias e conformidade ambiental com 100% de aprovação técnica.'
+      content: 'Consultoria especializada em implantação, regularização e manutenção das condições legais do seu empreendimento.'
     },
     {
       property: 'og:type',
@@ -200,13 +200,13 @@ useHead({
     },
     {
       property: 'og:url',
-      content: 'https://eco-brasil.vercel.app/'
+      content: 'https://ecobrasilambiental.com.br/'
     }
   ],
   link: [
     {
       rel: 'canonical',
-      href: 'https://eco-brasil.vercel.app/'
+      href: 'https://ecobrasilambiental.com.br/'
     }
   ]
 })
@@ -214,10 +214,10 @@ useHead({
 // Registrar Plugins
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
 
-const featuredServices = computed<Service[]>(() => services.slice(0, 4))
+const featuredServices = computed<Service[]>(() => services.slice(0, 5))
 
 // Typing Animation Logic
-const words = ['sustentável', 'licenciado', 'acessível']
+const words = ['implantação', 'regularização', 'manutenção']
 const displayText = ref(words[0])
 const currentWordIndex = ref(0)
 const isDeleting = ref(false)

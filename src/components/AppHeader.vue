@@ -2,8 +2,8 @@
   <header class="header" :class="{ 'scrolled': isScrolled, 'menu-open': mobileMenuOpen }">
     <div class="header-container">
       <router-link to="/" class="header-logo">
-        <img src="../public/logo-ecobrasil.jpg" alt="EcoBrasil Logo" class="logo-image" />
-        <span class="logo-text">EcoBrasil</span>
+        <img src="../public/logo-ecobrasil.jpg" alt="Ecobrasil Logo" class="logo-image" />
+        <span class="logo-text">Ecobrasil</span>
       </router-link>
       
       <!-- Desktop Navigation -->
@@ -64,10 +64,11 @@ const isScrolled = ref<boolean>(false)
 
 const menuItems: MenuItem[] = [
   { name: 'Início', path: '/' },
-  { name: 'Serviços', path: '/servicos' },
-  { name: 'Sobre', path: '/sobre' },
-  { name: 'Licenciamento', path: '/licenciamento' },
-  { name: 'Contatos', path: '/contatos' }
+  { name: 'Ambiental', path: '/ambiental' },
+  { name: 'Compliance', path: '/compliance' },
+  { name: 'Acessibilidade', path: '/acessibilidade' },
+  { name: 'Consultoria', path: '/consultoria' },
+  { name: 'Quem Somos', path: '/quem-somos' }
 ]
 
 const toggleMobileMenu = (): void => {

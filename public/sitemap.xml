@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://eco-brasil.vercel.app/</loc>
+    <loc>https://ecobrasilambiental.com.br/</loc>
     <lastmod>2024-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://eco-brasil.vercel.app/servicos</loc>
+    <loc>https://ecobrasilambiental.com.br/quem-somos</loc>
+    <lastmod>2024-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ecobrasilambiental.com.br/ambiental</loc>
     <lastmod>2024-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eco-brasil.vercel.app/sobre</loc>
+    <loc>https://ecobrasilambiental.com.br/compliance</loc>
     <lastmod>2024-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eco-brasil.vercel.app/acessibilidade</loc>
+    <loc>https://ecobrasilambiental.com.br/acessibilidade</loc>
     <lastmod>2024-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://eco-brasil.vercel.app/contatos</loc>
+    <loc>https://ecobrasilambiental.com.br/consultoria</loc>
     <lastmod>2024-05-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.8</priority>
   </url>
 </urlset>
