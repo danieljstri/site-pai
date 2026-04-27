@@ -60,7 +60,7 @@ const servicesList: string[] = [
   'Licenciamento Ambiental',
   'Vistoria & Inspeção',
   'Controle de Licenças',
-  'Laudo de Acessibilidade'
+  'Regularização de Licenças'
 ]
 
 const contactInfo: ContactInfo = {

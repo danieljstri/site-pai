@@ -66,7 +66,7 @@ const menuItems: MenuItem[] = [
   { name: 'Início', path: '/' },
   { name: 'Serviços', path: '/servicos' },
   { name: 'Sobre', path: '/sobre' },
-  { name: 'Acessibilidade', path: '/acessibilidade' },
+  { name: 'Licenciamento', path: '/licenciamento' },
   { name: 'Contatos', path: '/contatos' }
 ]
 

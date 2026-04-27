@@ -3,7 +3,7 @@ import type { RouteMetaData } from "@/types"
 import Home from "@/views/Home.vue"
 import Services from "@/views/Services.vue"
 import About from "@/views/About.vue"
-import Accessibility from "@/views/Accessibility.vue"
+import Licensing from "@/views/Licensing.vue"
 import Contact from "@/views/Contact.vue"
 
 declare module "vue-router" {
@@ -27,9 +27,9 @@ export const routes: RouteRecordRaw[] = [
     component: About,
   },
   {
-    path: "/acessibilidade",
-    name: "Accessibility",
-    component: Accessibility,
+    path: "/licenciamento",
+    name: "Licensing",
+    component: Licensing,
   },
   {
     path: "/contatos",

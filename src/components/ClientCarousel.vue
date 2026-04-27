@@ -164,31 +164,29 @@ onBeforeUnmount(() => {
 
 .client-logo {
   width: 100%;
-  max-width: 800px; /* Aumentado significativamente */
-  height: 300px; /* Aumentado para ocupar mais o bloco */
-  background: rgba(255, 255, 255, 0.95); /* Fundo quase branco para destacar logos originais */
-  border-radius: 12px;
+  max-width: 1000px; /* Aumentado para ocupar mais espaço horizontal */
+  height: 500px; /* Aumentado para uma presença visual maior */
+  background: transparent; /* Removemos o fundo da box */
+  border-radius: 24px; /* Bordas arredondadas na box pai */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  overflow: hidden; /* Garante que a imagem respeite o arredondamento */
   transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  border: none; /* Removemos a borda da box */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4); /* Sombra mais suave e profunda */
 }
 
 .client-logo:hover {
-  transform: scale(1.02);
-  border-color: #c5a368;
+  transform: scale(1.01);
 }
 
 .logo-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-  opacity: 1; /* Sempre visível */
-  filter: none; /* Cores originais sempre */
-  transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Faz a imagem ocupar todo o espaço sem deformar */
+  border-radius: 24px; /* Bordas arredondadas diretamente na imagem */
+  display: block;
 }
 
 .client-logo:hover .logo-image {
