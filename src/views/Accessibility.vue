@@ -113,9 +113,7 @@ onUnmounted(() => observer?.disconnect())
             </ul>
           </div>
           <div class="mec-visual">
-            <div class="visual-circle">
-              <span class="visual-text">MEC</span>
-            </div>
+            <img src="https://images.unsplash.com/photo-1498243639359-f7c8755b77fb?auto=format&fit=crop&w=800&q=80" alt="Instituição de Ensino" class="visual-image">
           </div>
         </div>
       </div>
@@ -172,7 +170,7 @@ onUnmounted(() => observer?.disconnect())
 .accessibility-hero {
   height: 50vh;
   min-height: 450px;
-  background-image: linear-gradient(rgba(10, 26, 18, 0.85), rgba(10, 26, 18, 0.85)), url('https://images.unsplash.com/photo-1516733725897-1aa73b87c8e8?auto=format&fit=crop&w=1920&q=80');
+  background-image: linear-gradient(rgba(10, 26, 18, 0.85), rgba(10, 26, 18, 0.85)), url('https://images.unsplash.com/photo-1508847154043-be5407fcaa5a?auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -240,17 +238,13 @@ onUnmounted(() => observer?.disconnect())
 .mec-list li { color: #cbd5e1; font-size: 15px; display: flex; align-items: center; gap: 10px; }
 .mec-list li::before { content: '•'; color: #d4b680; font-weight: bold; }
 
-.visual-circle {
-  width: 200px;
-  height: 200px;
-  border: 2px dashed #d4b680;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
+.visual-image {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid rgba(212, 182, 128, 0.3);
 }
-.visual-text { font-size: 48px; font-weight: 900; color: #d4b680; opacity: 0.5; }
 
 .security-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 20px; font-weight: 600; }

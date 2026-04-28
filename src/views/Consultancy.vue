@@ -60,11 +60,7 @@ onUnmounted(() => observer?.disconnect())
             </p>
           </div>
           <div class="strategy-visual reveal">
-            <div class="blueprint-overlay">
-              <div class="blueprint-line h"></div>
-              <div class="blueprint-line v"></div>
-              <div class="blueprint-circle"></div>
-            </div>
+            <img src="https://images.unsplash.com/photo-1503387762-592dea58ef23?auto=format&fit=crop&w=800&q=80" alt="Consultoria Estratégica" class="visual-image">
           </div>
         </div>
       </div>
@@ -181,7 +177,7 @@ onUnmounted(() => observer?.disconnect())
 .consultancy-hero {
   height: 50vh;
   min-height: 450px;
-  background-image: linear-gradient(rgba(10, 26, 18, 0.85), rgba(10, 26, 18, 0.85)), url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1920&q=80');
+  background-image: linear-gradient(rgba(10, 26, 18, 0.85), rgba(10, 26, 18, 0.85)), url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1920&q=80');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -197,27 +193,13 @@ onUnmounted(() => observer?.disconnect())
 .section-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin-bottom: 30px; }
 .section-description { font-size: 18px; color: #cbd5e1; line-height: 1.7; margin-bottom: 20px; }
 
-.strategy-visual {
-  position: relative;
-  height: 300px;
-  background: rgba(212, 182, 128, 0.05);
-  border: 1px solid rgba(212, 182, 128, 0.2);
+.strategy-visual img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
   border-radius: 8px;
-  overflow: hidden;
+  border: 1px solid rgba(212, 182, 128, 0.2);
 }
-
-.blueprint-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.blueprint-line { position: absolute; background: rgba(212, 182, 128, 0.2); }
-.blueprint-line.h { width: 100%; height: 1px; }
-.blueprint-line.v { width: 1px; height: 100%; }
-.blueprint-circle { width: 150px; height: 150px; border: 1px solid rgba(212, 182, 128, 0.2); border-radius: 50%; }
 
 .cases-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
 .case-card, .case-icon-card {
