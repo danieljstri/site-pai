@@ -2,8 +2,7 @@
   <header class="header" :class="{ 'scrolled': isScrolled, 'menu-open': mobileMenuOpen }">
     <div class="header-container">
       <router-link to="/" class="header-logo">
-        <img src="../public/logo-ecobrasil.jpg" alt="Ecobrasil Logo" class="logo-image" />
-        <span class="logo-text">Ecobrasil</span>
+        <img src="../public/Logo_Eco Brasil.png" alt="Ecobrasil Logo" class="logo-image" />
       </router-link>
       
       <!-- Desktop Navigation -->
@@ -124,18 +123,15 @@ onUnmounted(() => {
 .header-logo {
   display: flex;
   align-items: center;
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: 700;
-  color: #ffffff;
-  letter-spacing: -0.02em;
+  height: 100%;
 }
 
 .logo-image {
-  width: 35px;
-  height: 35px;
-  margin-right: 12px;
+  height: auto;
+  max-height: 60px;
+  width: auto;
   border-radius: 4px;
+  object-fit: contain;
 }
 
 .header-nav {

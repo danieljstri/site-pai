@@ -4,8 +4,7 @@
       <div class="footer-grid">
         <div class="footer-section">
           <div class="footer-logo">
-            <img src="../public/logo-ecobrasil.jpg" alt="EcoBrasil Logo" class="logo-image" />
-            EcoBrasil
+            <img src="../public/Logo_Eco Brasil.png" alt="EcoBrasil Logo" class="logo-image" />
           </div>
           <p class="footer-description">
             Consultoria em engenharia de alta performance. Especialistas em implantação e regularização legal com mais de 20 anos de expertise.
@@ -97,17 +96,15 @@ const currentYear = computed<number>(() => new Date().getFullYear())
 .footer-logo {
   display: flex;
   align-items: center;
-  font-size: 26px;
-  font-weight: 700;
-  color: #ffffff;
   margin-bottom: 24px;
 }
 
 .logo-image {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
+  height: auto;
+  max-height: 80px;
+  max-width: 100%;
   border-radius: 4px;
+  object-fit: contain;
 }
 
 .footer-description {
